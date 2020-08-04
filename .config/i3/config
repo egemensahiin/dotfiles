@@ -1,0 +1,283 @@
+#------- Globals -------#
+
+#==> Mod key variable and system font adjustment
+set $mod Mod4
+font pango:Inconsolata Regular 9
+
+#==> Adjust border pixels and style
+default_border pixel
+default_floating_border normal
+hide_edge_borders smart
+#    --> gaps
+gaps inner 5
+gaps outer 5
+
+#==> Variables
+set $lock_back "/home/egemen/Pictures/wallpapers/wallp5.png"
+set $backgr "/home/egemen/Pictures/wallpapers/wallp3.jpg"
+set $Locker i3lock 
+#    --> colorsc colors
+set $colorsc0   #002b36
+set $colorsc1   #073642
+set $colorsc2   #586e75
+set $colorsc3   #657b83
+set $colorsc4   #839496
+set $colorsc5   #93a1a1
+set $colorsc6   #eee8d5
+set $colorsc7   #fdf6e3
+set $colorsc8   #b58900
+set $colorsc9   #cb4b16
+set $colorsc10  #dc322f
+set $colorsc11  #d33682
+set $colorsc12  #6c71c4
+set $colorsc13  #268bd2
+set $colorsc14  #2aa198
+set $colorsc15  #859900
+#    --> define names for default workspaces for which we configure key bindings later on.
+set $ws1 "1 "
+set $ws2 "2 "
+set $ws3 "3 "
+set $ws4 "4 "
+set $ws5 "5 "
+set $ws6 "6 "
+set $ws7 "7 "
+set $ws8 "8 "
+set $ws9 "9 "
+set $ws0 "10 "
+
+#==> Startup applications
+exec feh --bg-scale $backgr 
+exec xcompmgr
+exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 300 "i3lock -e -i $lock_back" normal
+exec_always /home/egemen/.config/i3/alternating_layouts.py
+exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
+exec udiskie
+exec optimus-manager-qt
+
+#------- Keybindings -------#
+
+#==> Fundamental Keys
+#    --> Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+#    --> start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+#    --> kill focused window
+bindsym $mod+Shift+q kill
+#    --> rofi and a web search script based on rofi
+bindsym $mod+d exec rofi -show drun 
+bindsym $mod+Shift+d exec rofi_web
+#    --> change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+scedilla focus right
+#    --> alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+#    --> move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+scedilla move right
+#    --> alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+#    --> split in horizontal orientation
+bindsym $mod+h split h
+#    --> split in vertical orientation
+bindsym $mod+v split v
+#    --> enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+#    --> change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+#    --> toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+#    --> change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+#    --> focus the parent container
+bindsym $mod+a focus parent
+#    --> switch to workspace
+bindsym $mod+1 workspace $ws1; workspace $ws1
+bindsym $mod+2 workspace $ws2; workspace $ws2
+bindsym $mod+3 workspace $ws3; workspace $ws3
+bindsym $mod+4 workspace $ws4; workspace $ws4
+bindsym $mod+5 workspace $ws5; workspace $ws5
+bindsym $mod+6 workspace $ws6; workspace $ws6
+bindsym $mod+7 workspace $ws7; workspace $ws7
+bindsym $mod+8 workspace $ws8; workspace $ws8
+bindsym $mod+9 workspace $ws9; workspace $ws9
+bindsym $mod+0 workspace $ws0; workspace $ws0
+#    --> move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws0; workspace $ws0
+#    --> reload the configuration file
+bindsym $mod+Shift+c reload
+#    --> restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+#    --> exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+#    --> resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym scedilla resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+#==> i3bar setup and colors
+bar {
+				font pango:Inconsolata Regular 9
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        colors {
+      background $colorsc0
+      statusline $colorsc4
+      separator  $colorsc2
+      focused_workspace  $colorsc8 $colorsc8 $colorsc0
+      active_workspace   $colorsc2 $colorsc2 $colorsc0
+      inactive_workspace $colorsc1 $colorsc0 $colorsc4
+      urgent_workspace   $colorsc10 $colorsc10 $colorsc7
+        }
+}
+client.focused          $colorsc0 $colorsc2 $colorsc7 $colorsc13
+client.focused_inactive $colorsc0 $colorsc1 $colorsc4 $colorsc1
+client.unfocused        $colorsc0 $colorsc1 $colorsc4 $colorsc1
+client.urgent           $colorsc0 $colorsc10 $colorsc7 $colorsc0
+
+#==> Exit Session Menu (From ArchWiki)
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker -i $lock_back, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker -i $lock_back && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker -i $lock_back && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Pause mode "$mode_system"
+
+#==> CapsLock and NumLock Indicator
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+10 i3blocks
+bindsym --release Num_Lock exec pkill -SIGRTMIN+10 i3blocks
+
+#==> Screenlock 
+bindsym $mod+x exec i3lock -e -i $lock_back
+
+#==> XF86 Keys
+bindsym XF86AudioRaiseVolume exec ponymix --max-volume 150 increase 5 && exec pkill -SIGRTMIN+10 i3blocks 
+bindsym XF86AudioLowerVolume exec ponymix --max-volume 150 decrease 5 && exec pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioMute exec ponymix toggle && exec pkill -SIGRTMIN+10 i3blocks
+bindsym XF86MonBrightnessUp exec brightnessctl set 10%+ && exec pkill -SIGRTMIN+10 i3blocks
+bindsym XF86MonBrightnessDown exec brightnessctl --min-value=750 set 10%- && exec pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioPlay exec "playerctl --player=spotify,%any play-pause"
+bindsym XF86AudioNext exec "playerctl --player=spotify,%any next"
+bindsym XF86AudioPrev exec "playerctl --player=spotify,%any previous"
+bindsym XF86AudioStop exec "playerctl --player=spotify,%any stop"
+bindsym XF86RFKill exec /home/egemen/.config/i3/flightmod.sh
+bindsym XF86TouchpadToggle exec /home/egemen/.config/i3/touchpad_controller.sh
+
+#==> Application Keys
+bindsym $mod+Shift+p exec pavucontrol
+bindsym $mod+Shift+o exec xfce4-terminal -e alsamixer
+bindsym XF86Calculator exec galculator
+bindsym Print exec /home/egemen/.config/i3/screenshot.sh
+bindsym $mod+Shift+f exec pcmanfm
+bindsym $mod+Shift+b exec chromium
+
+#------- Adjust Workspaces -------#
+
+#==> Applications to open in floating mode as default
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Galculator"] floating enable
+
+#==> Assign applications to workspaces
+for_window [class="Spotify"] move to workspace $ws4; workspace $ws4
+assign [class="Xfce4-terminal"] $ws1
+assign [class="Chromium"] $ws2
+assign [class="code-oss"] $ws3
+assign [class="Geany"] $ws3
+assign [class="Mousepad"] $ws3
+assign [class="Pcmanfm"] $ws5
+assign [class="feh"] $ws6
+assign [class="mpv"] $ws6
+assign [class="Gimp"] $ws6
+assign [class="Inkscape"] $ws6
+assign [class="MPlayer"] $ws6
+assign [class="vlc"] $ws6
+assign [class="openshot"] $ws6
+assign [class="Epdfview"] $ws7
+assign [class="Wps"] $ws7
+assign [class="Et"] $ws7
+assign [class="Wpp"] $ws7
+assign [class="libreoffice-startcenter"] $ws7
+assign [class="libreoffice-writer"] $ws7
+assign [class="libreoffice-impress"] $ws7
+assign [class="libreoffice-draw"] $ws7
+assign [class="libreoffice-calc"] $ws7
+assign [class="PyMOL"] $ws8
+assign [class="Tk"] $ws8
+assign [class="AGFRgui.py"] $ws8
+
+#==> Auto-open a workspace when application opened
+for_window [class="Xfce4-terminal"] focus	
+for_window [class="Chromium"] focus	
+for_window [class="code-oss"] focus	
+for_window [class="Geany"] focus	
+for_window [class="Mousepad"] focus	
+for_window [class="Pcmanfm"] focus	
+for_window [class="feh"] focus	
+for_window [class="mpv"] focus	
+for_window [class="Gimp"] focus	
+for_window [class="Inkscape"] focus	
+for_window [class="MPlayer"] focus	
+for_window [class="vlc"] focus
+for_window [class="openshot"] focus	
+for_window [class="Epdfview"] focus	
+for_window [class="Wps"] focus	
+for_window [class="Et"] focus	
+for_window [class="Wpp"] focus	
+for_window [class="libreoffice-startcenter"] focus
+for_window [class="libreoffice-writer"] focus	
+for_window [class="libreoffice-impress"] focus
+for_window [class="libreoffice-draw"]	focus	
+for_window [class="libreoffice-calc"] focus	
+for_window [class="PyMOL"] focus	
+for_window [class="Tk"] focus
+for_window [class="AGFRgui.py"] focus
+
