@@ -14,9 +14,9 @@ gaps outer 5
 
 #==> Variables
 set $lock_back "/home/egemen/Pictures/wallpapers/wallp5.png"
-set $backgr "/home/egemen/Pictures/wallpapers/wallp3.jpg"
+set $backgr "/home/egemen/Pictures/wallpapers/wallp1.png"
 set $Locker i3lock 
-#    --> colorsc colors
+#    --> solarized colors
 set $colorsc0   #002b36
 set $colorsc1   #073642
 set $colorsc2   #586e75
