@@ -134,8 +134,8 @@ assignments[""] = ["Code-oss", "Geany", "Mousepad",
                     "code-oss", "geany", "mousepad"]
 assignments[""] = ["Spotify", "spotify"]
 assignments[""] = ["Pcmanfm", "pcmanfm"]
-assignments[""] = ["Feh", "Mpv", "Gimp-2.10", "Inkscape", "Mplayer", "Vlc", "openshot-qt",
-                    "feh", "Mpv", "gimp-2.10", "inkscape", "mplayer", "vlc", "openshot"]
+assignments[""] = ["Mpv", "Gimp-2.10", "Inkscape", "Mplayer", "Vlc", "openshot-qt",
+                    "Mpv", "gimp-2.10", "inkscape", "mplayer", "vlc", "openshot"]
 assignments[""] = ["Epdfview", "Et", "Wpp", "libreoffice-startcenter", "libreoffice-writer", "libreoffice-impress", "libreoffice-calc", "libreoffice-draw", "wps",
                     "epdfview", "et", "wpp", "Libreoffice-startcenter", "Libreoffice-writer", "Libreoffice-impress", "Libreoffice-calc", "Libreoffice-draw", "Wps",]
 assignments[""] = ["PyMOL", "Tk", "AGFRgui.py",
