@@ -112,7 +112,7 @@ list_of_groups = {"": "monadtall",
                   "": "bsp",
                   "": "monadtall",
                   "": "monadtall",
-                  "": "monadtall",
+                  "": "monadtall",
                   "": "bsp",
                   "": "monadtall",
                   "": "monadtall",
@@ -206,7 +206,8 @@ widgets = [
         ),
     widget.CurrentLayoutIcon( # [5] --> Layout icon
         background=colorsc[10],
-        scale=0.65, foreground=colorsc[0]
+        scale=0.65,
+        foreground=colorsc[0]
         ),
     widget.CurrentLayout( # [6] --> Layout name
         background=colorsc[10],
@@ -356,7 +357,7 @@ floating_layout = layout.Floating(float_rules=[
     {'wmclass': 'Galculator'},
 ])
 
-# ----- Some other configurations
+# ----- Builtin configuration variables ----- #
 main = None
 follow_mouse_focus = True
 bring_front_click = False
