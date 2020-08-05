@@ -34,24 +34,24 @@ set $colorsc13  #268bd2
 set $colorsc14  #2aa198
 set $colorsc15  #859900
 #    --> define names for default workspaces for which we configure key bindings later on.
-set $ws1 "1 "
-set $ws2 "2 "
-set $ws3 "3 "
-set $ws4 "4 "
-set $ws5 "5 "
-set $ws6 "6 "
-set $ws7 "7 "
-set $ws8 "8 "
-set $ws9 "9 "
-set $ws0 "10 "
+set $ws0 "0:"
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6:"
+set $ws7 "7:"
+set $ws8 "8:"
+set $ws9 "9:"
 
 #==> Startup applications
 exec feh --bg-scale $backgr 
 exec xcompmgr
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 300 "i3lock -e -i $lock_back" normal
 exec_always /home/egemen/.config/i3/alternating_layouts.py
-exec --no-startup-id nm-applet
-exec --no-startup-id blueman-applet
+exec_always nm-applet
+exec_always blueman-applet
 exec udiskie
 exec optimus-manager-qt
 
@@ -104,6 +104,7 @@ bindsym $mod+space focus mode_toggle
 #    --> focus the parent container
 bindsym $mod+a focus parent
 #    --> switch to workspace
+bindsym $mod+0 workspace $ws0; workspace $ws0
 bindsym $mod+1 workspace $ws1; workspace $ws1
 bindsym $mod+2 workspace $ws2; workspace $ws2
 bindsym $mod+3 workspace $ws3; workspace $ws3
@@ -113,8 +114,8 @@ bindsym $mod+6 workspace $ws6; workspace $ws6
 bindsym $mod+7 workspace $ws7; workspace $ws7
 bindsym $mod+8 workspace $ws8; workspace $ws8
 bindsym $mod+9 workspace $ws9; workspace $ws9
-bindsym $mod+0 workspace $ws0; workspace $ws0
 #    --> move focused container to workspace
+bindsym $mod+Shift+0 move container to workspace $ws0; workspace $ws0
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
@@ -124,7 +125,6 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws0; workspace $ws0
 #    --> reload the configuration file
 bindsym $mod+Shift+c reload
 #    --> restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -161,14 +161,16 @@ bindsym $mod+r mode "resize"
 bar {
 				font pango:Inconsolata Regular 9
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
+				workspace_min_width 0
+				strip_workspace_numbers yes
         colors {
-      background $colorsc0
-      statusline $colorsc4
-      separator  $colorsc2
-      focused_workspace  $colorsc8 $colorsc8 $colorsc0
-      active_workspace   $colorsc2 $colorsc2 $colorsc0
-      inactive_workspace $colorsc1 $colorsc0 $colorsc4
-      urgent_workspace   $colorsc10 $colorsc10 $colorsc7
+     	  background 				 $colorsc0
+     	  statusline 				 $colorsc4
+     	  separator  				 $colorsc2
+     	  focused_workspace  $colorsc8  $colorsc8  $colorsc0
+     	  active_workspace   $colorsc2  $colorsc2  $colorsc0
+     	  inactive_workspace $colorsc1  $colorsc0  $colorsc4
+     	  urgent_workspace   $colorsc10 $colorsc10 $colorsc7
         }
 }
 client.focused          $colorsc0 $colorsc2 $colorsc7 $colorsc13
@@ -253,6 +255,8 @@ assign [class="libreoffice-calc"] $ws7
 assign [class="PyMOL"] $ws8
 assign [class="Tk"] $ws8
 assign [class="AGFRgui.py"] $ws8
+assign [class="VirtualBox Machine"] $ws9
+assign [class="VirtualBox Manager"] $ws9
 
 #==> Auto-open a workspace when application opened
 for_window [class="Xfce4-terminal"] focus	
@@ -280,4 +284,6 @@ for_window [class="libreoffice-calc"] focus
 for_window [class="PyMOL"] focus	
 for_window [class="Tk"] focus
 for_window [class="AGFRgui.py"] focus
+for_window [class="VirtualBox Machine"] focus 
+for_window [class="VirtualBox Manager"] focus
 
