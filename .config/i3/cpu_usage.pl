@@ -17,6 +17,7 @@ my $t_crit = $ENV{T_CRIT} // 80;
 my $cpu_usage = -1;
 my $decimals = $ENV{DECIMALS} // 2;
 my $label = $ENV{LABEL} // "";
+my $color = $ENV{COLOR} // "#268bd2";
 
 sub help {
     print "Usage: cpu_usage [-w <warning>] [-c <critical>] [-d <decimals>]\n";
@@ -45,19 +46,20 @@ close(MPSTAT);
 
 $cpu_usage eq -1 and die 'Can\'t find CPU information';
 
+# Print color, if needed
+if ($cpu_usage >= $t_crit) {
+    ${color} = "#dc322f";
+    exit 33;
+} elsif ($cpu_usage >= $t_warn) {
+    ${color} = "#b58900";
+}
+
 # Print short_text, full_text
 print "${label}";
 printf "%.${decimals}f%%\n", $cpu_usage;
 print "${label}";
 printf "%.${decimals}f%%\n", $cpu_usage;
-print "#268bd2\n";
+print "${color}\n";
 
-# Print color, if needed
-if ($cpu_usage >= $t_crit) {
-    print "#dc322f\n";
-    exit 33;
-} elsif ($cpu_usage >= $t_warn) {
-    print "#b58900\n";
-}
 
 exit 0;

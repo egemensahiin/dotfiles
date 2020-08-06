@@ -79,28 +79,6 @@ if ${use_color} ; then
 		PS1='\[\033[01;34m\]\u\[\033[00m\]@\h:\[\033[32m\]\w\[\e[31m\]$(nonzero_return)\[\033[00m\]\$\[\033[00m\] '
 	fi
 
-	alias ls='ls --color=auto'
-	alias ll='ls -lh --color=auto'
-	alias lla='ls -lah --color=auto'
-	alias grep='grep --colour=auto'
-	alias egrep='egrep --colour=auto'
-	alias fgrep='fgrep --colour=auto'
-	alias pmv='/home/egemen/DockingWorks/MGLTools-1.5.7/bin/pmv'
-	alias adt='/home/egemen/DockingWorks/MGLTools-1.5.7/bin/adt'
-	alias vision='/home/egemen/DockingWorks/MGLTools-1.5.7/bin/vision'
-	alias pythonsh='/home/egemen/DockingWorks/MGLTools-1.5.7/bin/pythonsh'
-	alias raccoon='/home/egemen/DockingWorks/MGLTools-1.5.7/bin/raccoon'    
-	alias adfr='/home/egemen/DockingWorks/ADFRsuite-1.0/bin/adfr'
-	alias agfr='/home/egemen/DockingWorks/ADFRsuite-1.0/bin/agfr'
-	alias agfrgui='/home/egemen/DockingWorks/ADFRsuite-1.0/bin/agfrgui'
-	alias autosite='/home/egemen/DockingWorks/ADFRsuite-1.0/bin/autosite'
-	alias flipdock='pythonsh /home/egemen/DockingWorks/MGLTools-1.5.7/MGLToolsPckgs/AutoDockFR/bin/runadfr.py'
-	alias prepare_ligand='/home/egemen/DockingWorks/ADFRsuite-1.0/bin/prepare_ligand'
-	alias prepare_receptor='/home/egemen/DockingWorks/ADFRsuite-1.0/bin/prepare_receptor'
-	alias adcp='/home/egemen/DockingWorks/ADFRsuite-1.0/bin/adcp'
-
-	# git bare repo alias
-	alias dotfiles='/usr/bin/git --git-dir=/home/egemen/dotfiles --work-tree=/home/egemen/'
 
 # color the man command
 man() {
@@ -124,12 +102,6 @@ fi
 
 unset use_color safe_term match_lhs sh
 
-alias cp="cp -i"                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
-alias np='nano -w PKGBUILD'
-alias more=less
-
 xhost +local:root > /dev/null 2>&1
 
 complete -cf sudo
@@ -141,8 +113,6 @@ complete -cf sudo
 shopt -s checkwinsize
 
 shopt -s expand_aliases
-
-# export QT_SELECT=4
 
 # Enable history appending instead of overwriting.  #139609
 shopt -s histappend
@@ -171,5 +141,40 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
+
+# -- Exports
+export PATH="$PATH:$HOME/.local/bin"
+# export QT_SELECT=4
+
+# --Aliases
+# Aliases for some commands
+alias cp="cp -i"                          # confirm before overwriting something
+alias df='df -h'                          # human-readable sizes
+alias free='free -m'                      # show sizes in MB
+alias np='nano -w PKGBUILD'
+alias more=less
+alias ls='ls --color=auto'
+alias ll='ls -lh --color=auto'
+alias lla='ls -lah --color=auto'
+alias grep='grep --colour=auto'
+alias egrep='egrep --colour=auto'
+alias fgrep='fgrep --colour=auto'
+
+# Aliases for Autodock suite
+alias pmv='/home/egemen/DockingWorks/MGLTools-1.5.7/bin/pmv'
+alias adt='/home/egemen/DockingWorks/MGLTools-1.5.7/bin/adt'
+alias vision='/home/egemen/DockingWorks/MGLTools-1.5.7/bin/vision'
+alias pythonsh='/home/egemen/DockingWorks/MGLTools-1.5.7/bin/pythonsh'
+alias raccoon='/home/egemen/DockingWorks/MGLTools-1.5.7/bin/raccoon'    
+alias adfr='/home/egemen/DockingWorks/ADFRsuite-1.0/bin/adfr'
+alias agfr='/home/egemen/DockingWorks/ADFRsuite-1.0/bin/agfr'
+alias agfrgui='/home/egemen/DockingWorks/ADFRsuite-1.0/bin/agfrgui'
+alias autosite='/home/egemen/DockingWorks/ADFRsuite-1.0/bin/autosite'
+alias flipdock='pythonsh /home/egemen/DockingWorks/MGLTools-1.5.7/MGLToolsPckgs/AutoDockFR/bin/runadfr.py'
+alias prepare_ligand='/home/egemen/DockingWorks/ADFRsuite-1.0/bin/prepare_ligand'
+alias prepare_receptor='/home/egemen/DockingWorks/ADFRsuite-1.0/bin/prepare_receptor'
+alias adcp='/home/egemen/DockingWorks/ADFRsuite-1.0/bin/adcp'
+
+# Aliases for my git bare repos.
 alias dotfiles='/usr/bin/git --git-dir=/home/egemen/.dotfiles/ --work-tree=/home/egemen'
 alias trdocumentation='/usr/bin/git --git-dir=/home/egemen/Documents/.trdocumentation/ --work-tree=/home/egemen/Documents'
