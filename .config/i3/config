@@ -156,12 +156,6 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "resize"
-#    --> HDMI-1-2 connection
-bindsym $mod+Shift+F3 exec /home/egemen/.config/i3/toggle_audioprofile.sh
-bindsym $mod+Shift+x move workspace to output right
-bindsym $mod+Shift+z move workspace to output left
-bindsym $mod+Shift+m move container to output right
-bindsym $mod+Shift+n move container to output left
 
 #==> i3bar setup and colors
 bar {
@@ -221,12 +215,23 @@ bindsym XF86RFKill exec /home/egemen/.config/i3/flightmod.sh
 bindsym XF86TouchpadToggle exec /home/egemen/.config/i3/touchpad_controller.sh
 
 #==> Application Keys
-bindsym $mod+Shift+p exec pavucontrol
-bindsym $mod+Shift+o exec xfce4-terminal -e alsamixer
+bindsym $mod+control+p exec pavucontrol
+bindsym $mod+control+a exec xfce4-terminal -e alsamixer
 bindsym XF86Calculator exec galculator
 bindsym Print exec /home/egemen/.config/i3/screenshot.sh
-bindsym $mod+Shift+f exec pcmanfm
-bindsym $mod+Shift+b exec chromium
+bindsym $mod+control+f exec pcmanfm
+bindsym $mod+control+b exec chromium
+bindsym $mod+control+c exec code-oss
+bindsym $mod+control+s exec spotify
+bindsym $mod+control+g exec gimp
+bindsym $mod+control+v exec virtualbox
+
+#==> HDMI-1-2 connection
+bindsym $mod+Shift+F3 exec /home/egemen/.config/i3/toggle_audioprofile.sh
+bindsym $mod+Shift+x move workspace to output right
+bindsym $mod+Shift+z move workspace to output left
+bindsym $mod+Shift+m move container to output right
+bindsym $mod+Shift+n move container to output left
 
 #------- Adjust Workspaces -------#
 
