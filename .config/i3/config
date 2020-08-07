@@ -156,6 +156,12 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "resize"
+#    --> HDMI-1-2 connection
+bindsym $mod+Shift+F3 exec /home/egemen/.config/i3/toggle_audioprofile.sh
+bindsym $mod+Shift+x move workspace to output right
+bindsym $mod+Shift+z move workspace to output left
+bindsym $mod+Shift+m move container to output right
+bindsym $mod+Shift+n move container to output left
 
 #==> i3bar setup and colors
 bar {
@@ -253,7 +259,6 @@ assign [class="libreoffice-impress"] $ws7
 assign [class="libreoffice-draw"] $ws7
 assign [class="libreoffice-calc"] $ws7
 assign [class="PyMOL"] $ws8
-assign [class="Tk"] $ws8
 assign [class="AGFRgui.py"] $ws8
 assign [class="VirtualBox Machine"] $ws9
 assign [class="VirtualBox Manager"] $ws9
@@ -282,7 +287,6 @@ for_window [class="libreoffice-impress"] focus
 for_window [class="libreoffice-draw"]	focus	
 for_window [class="libreoffice-calc"] focus	
 for_window [class="PyMOL"] focus	
-for_window [class="Tk"] focus
 for_window [class="AGFRgui.py"] focus
 for_window [class="VirtualBox Machine"] focus 
 for_window [class="VirtualBox Manager"] focus
