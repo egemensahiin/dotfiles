@@ -34,4 +34,4 @@ case "$BLOCK_BUTTON" in
 							> /dev/null"
 esac
 # echo "$LABEL$(date "$DATEFMT")"
-echo "$LABEL$(date "$SHORTFMT")"
+echo " $(date "$SHORTFMT")"
