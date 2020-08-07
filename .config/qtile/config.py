@@ -1,12 +1,13 @@
 # !!!!- DON'T FORGET FUCKING COMMAS -!!!! #
 
 # ----- Import libs and functions in here ----- #
+import os
+import subprocess
 from libqtile.config import Rule, Match, Key, Screen, Group, Drag, Click
 from libqtile.lazy import lazy
 from libqtile import layout, bar, widget, hook
 from typing import List  # noqa: F401
-import os
-import subprocess
+
 
 # ----- Mod key variable; mod1 for ALT key, mod4 for Super key ----- #
 mod = "mod4"
