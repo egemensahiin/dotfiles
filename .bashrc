@@ -159,6 +159,7 @@ alias lla='ls -lah --color=auto'
 alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
 alias fgrep='fgrep --colour=auto'
+alias rescuewp='feh --bg-scale ~/Pictures/wallpapers/wallp1.png'
 
 # Aliases for Autodock suite
 alias pmv='/home/egemen/DockingWorks/MGLTools-1.5.7/bin/pmv'
