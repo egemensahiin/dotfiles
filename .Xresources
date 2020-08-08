@@ -127,6 +127,8 @@ Xcursor.size:                     0
 
 rofi.modi: ssh,window,drun,run
 rofi.theme: solarized
+rofi.show-icons: true
+rofi.icon-theme: "Solarized-Dark-Orange-Numix"
 !rofi.padding: 300
 !rofi.fullscreen: true
 !rofi.bw: 0
