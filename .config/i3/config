@@ -36,18 +36,19 @@ set $colorsc15  #859900
 #    --> define names for default workspaces for which we configure key bindings later on.
 set $ws0 "0:"
 set $ws1 "1:"
-set $ws2 "2:"
+set $ws2 "2:"
 set $ws3 "3:"
 set $ws4 "4:"
 set $ws5 "5:"
-set $ws6 "6:"
+set $ws6 "6:"
 set $ws7 "7:"
 set $ws8 "8:"
 set $ws9 "9:"
 
 #==> Startup applications
 exec feh --bg-scale $backgr 
-exec xcompmgr
+# exec xcompmgr
+exec_always picom -i 0.60 --opacity-rule 100:"class_g = 'i3lock'" --opacity-rule 100:"class_g = 'Rofi'" --blur-method kawase --blur-strength 5 --blur-size 10 --blur-deviation 5.0 --backend glx --corner-radius 10 --rounded-corners-exclude "class_g = 'i3bar'" 
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 300 "i3lock -e -i $lock_back" normal
 exec_always /home/egemen/.config/i3/alternating_layouts.py
 exec_always nm-applet
@@ -220,11 +221,11 @@ bindsym $mod+control+a exec xfce4-terminal -e alsamixer
 bindsym XF86Calculator exec galculator
 bindsym Print exec /home/egemen/.config/i3/screenshot.sh
 bindsym $mod+control+f exec pcmanfm
-bindsym $mod+control+b exec chromium
+bindsym $mod+control+b exec qutebrowser
 bindsym $mod+control+c exec code-oss
 bindsym $mod+control+s exec spotify
 bindsym $mod+control+g exec gimp
-bindsym $mod+control+v exec virtualbox
+bindsym $mod+control+v exec VirtualBox -style fusion
 
 #==> HDMI-1-2 connection
 bindsym $mod+Shift+F3 exec /home/egemen/.config/i3/toggle_audioprofile.sh
@@ -243,12 +244,11 @@ for_window [class="Galculator"] floating enable
 for_window [class="Spotify"] move to workspace $ws4; workspace $ws4
 assign [class="Xfce4-terminal"] $ws1
 assign [class="Chromium"] $ws2
+assign [class="qutebrowser"] $ws2
 assign [class="code-oss"] $ws3
 assign [class="Geany"] $ws3
 assign [class="Mousepad"] $ws3
 assign [class="Pcmanfm"] $ws5
-assign [class="feh"] $ws6
-assign [class="mpv"] $ws6
 assign [class="Gimp"] $ws6
 assign [class="Inkscape"] $ws6
 assign [class="MPlayer"] $ws6
@@ -271,12 +271,11 @@ assign [class="VirtualBox Manager"] $ws9
 #==> Auto-open a workspace when application opened
 for_window [class="Xfce4-terminal"] focus	
 for_window [class="Chromium"] focus	
+for_window [class="qutebrowser"] focus	
 for_window [class="code-oss"] focus	
 for_window [class="Geany"] focus	
 for_window [class="Mousepad"] focus	
 for_window [class="Pcmanfm"] focus	
-for_window [class="feh"] focus	
-for_window [class="mpv"] focus	
 for_window [class="Gimp"] focus	
 for_window [class="Inkscape"] focus	
 for_window [class="MPlayer"] focus	
