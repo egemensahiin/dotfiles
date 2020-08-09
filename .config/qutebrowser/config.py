@@ -155,6 +155,15 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
+# Allow websites to register protocol handlers via
+# `navigator.registerProtocolHandler`.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.register_protocol_handler', True, 'https://mail.google.com?extsrc=mailto&url=%25s')
+
 # Editor (and arguments) to use for the `open-editor` command. The
 # following placeholders are defined:  * `{file}`: Filename of the file
 # to be edited. * `{line}`: Line in which the caret is found in the
@@ -182,7 +191,7 @@ c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
 # the search engine name to the search term, e.g. `:open google
 # qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'yt': 'https://youtube.com/results?search_query={}', 'aw': 'https://wiki.archlinux.org/?search={}'}
+c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'aw': 'https://wiki.archlinux.org/?search={}', 'yt': 'https://youtube.com/results?search_query={}', 'tr': 'https://translate.google.com/#view=home&op=translate&sl=auto&tl=tr&text={}'}
 
 # Text color of the completion widget. May be a single color to use for
 # all columns or a list of three colors, one for each column.
@@ -559,4 +568,10 @@ c.fonts.tabs.selected = '11pt default_family'
 c.fonts.tabs.unselected = '11pt default_family'
 
 # Bindings for normal mode
+config.bind(',gm', 'open -t mail.google.com')
+config.bind(',tr', 'open -t translate.google.com')
+config.bind(',v', 'mpv {url}')
+config.bind(',wa', 'open -t web.whatsapp.com')
+config.bind(',yt', 'open -t youtube.com')
 config.bind('t', 'open -t')
+config.bind('wv', 'spawn mpv {url}')

@@ -6,5 +6,13 @@
 
 config_version: 2
 settings:
-  auto_save.session:
-    global: true
+  bindings.commands:
+    global:
+      normal:
+        ',gm': open -t mail.google.com
+        ',tr': open -t translate.google.com
+        ',v': mpv {url}
+        ',wa': open -t web.whatsapp.com
+        ',yt': open -t youtube.com
+        t: open -t
+        wv: spawn mpv {url}
