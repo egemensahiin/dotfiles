@@ -570,7 +570,7 @@ c.fonts.tabs.unselected = '11pt default_family'
 # Bindings for normal mode
 config.bind(',gm', 'open -t mail.google.com')
 config.bind(',tr', 'open -t translate.google.com')
-config.bind(',v', 'mpv {url}')
+config.bind(',v', 'spawn mpv {url}')
 config.bind(',wa', 'open -t web.whatsapp.com')
 config.bind(',yt', 'open -t youtube.com')
 config.bind('t', 'open -t')
