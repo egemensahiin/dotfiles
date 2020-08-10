@@ -35,6 +35,8 @@ colors() {
 	done
 }
 
+shopt -s autocd # Auto cd when write a valid directory name.
+
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
 # Change the window title of X terminals
@@ -144,6 +146,7 @@ ex ()
 
 # -- Exports
 export PATH="$PATH:$HOME/.local/bin"
+export QT_QPA_PLATFORMTHEME=gtk2
 # export QT_SELECT=4
 
 # --Aliases
@@ -159,7 +162,10 @@ alias lla='ls -lah --color=auto'
 alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
 alias fgrep='fgrep --colour=auto'
-alias rescuewp='feh --bg-scale ~/Pictures/wallpapers/wallp1.png'
+alias setwp='feh --bg-scale ~/Pictures/wallpapers/wallp1.png'
+alias p='sudo pacman'
+alias v='vim'
+alias sv='sudo vim'
 
 # Aliases for Autodock suite
 alias pmv='/home/egemen/DockingWorks/MGLTools-1.5.7/bin/pmv'

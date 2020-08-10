@@ -47,3 +47,6 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 " colorscheme nord
 colorscheme solarized
+let g:solarized_termtrans=1
+let g:solarized_italic=1
+let g:solarized_bold=1
