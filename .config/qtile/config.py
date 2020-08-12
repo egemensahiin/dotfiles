@@ -63,15 +63,17 @@ keys = [
     Key([mod, "shift"], "e", lazy.shutdown()),
     Key([mod], "r", lazy.spawncmd('command')),
  
-    # --- The rest is my own keys
+    # --- The rest are my own keys
     Key([mod], "d", lazy.spawn("rofi -show drun")),
-    Key([mod, "shift"], "d", lazy.spawn("rofi_web")),
-    Key([mod, "shift"], "p", lazy.spawn("pavucontrol")),
-    Key([mod, "shift"], "o", lazy.spawn("xfce4-terminal -e alsamixer")),
-    Key([mod, "shift"], "b", lazy.spawn("chromium")),
-    Key([mod, "shift"], "f", lazy.spawn("pcmanfm")),
-    Key([], "Print", lazy.spawn("/home/egemen/.config/i3/screenshot.sh")),
-    Key([mod], "x", lazy.spawn("i3lock -i /home/egemen/Pictures/wallpapers/wallp5.png")),
+    Key([mod, "control"], "d", lazy.spawn("rofi_web")),
+    Key([mod, "control"], "p", lazy.spawn("pavucontrol")),
+    Key([mod, "control"], "o", lazy.spawn("xfce4-terminal -e alsamixer")),
+    Key([mod, "control"], "b", lazy.spawn("qutebrowser")),
+    Key([mod, "control"], "f", lazy.spawn("pcmanfm")),
+    Key([mod, "control"], "g", lazy.spawn("gimp")),
+    Key([mod, "control"], "c", lazy.spawn("code-oss")),
+    Key([], "Print", lazy.spawn("/home/egemen/.config/qtile/screenshot.sh")),
+    Key([mod], "x", lazy.spawn("i3lock -i /home/egemen/Pictures/wallpapers/wallp15.jpg")),
     Key([mod], "f", lazy.window.toggle_fullscreen()),
 
     # Should adjust left and right for bsp layout. feom qtile doc:
@@ -104,7 +106,7 @@ keys = [
 
     # Other XF86Keys (XF86RFKill is working default, don't try to define that):
     Key([], "XF86Calculator", lazy.spawn("galculator")),
-    Key([], "XF86TouchpadToggle", lazy.spawn("/home/egemen/.config/i3/touchpad_controller.sh"))
+    Key([], "XF86TouchpadToggle", lazy.spawn("/home/egemen/.config/qtile/touchpad_controller.sh"))
 ]
 
 # ----- My adjustment for groups (more charismatic) ----- #
@@ -130,13 +132,13 @@ for n, i in enumerate(list(list_of_groups.keys()), 0):
 # ----- Assign applications to groups ----- #
 assignments = {}
 assignments[""] = ["Xfce4-terminal", "xfce4-terminal"]
-assignments[""] = ["Chromium", "chromium"]
+assignments[""] = ["Chromium", "chromium", "qutebrowser", "Qutebrowser"]
 assignments[""] = ["Code-oss", "Geany", "Mousepad",
                     "code-oss", "geany", "mousepad"]
 assignments[""] = ["Spotify", "spotify"]
-assignments[""] = ["Pcmanfm", "pcmanfm"]
-assignments[""] = ["Mpv", "Gimp-2.10", "Inkscape", "Mplayer", "Vlc", "openshot-qt",
-                    "Mpv", "gimp-2.10", "inkscape", "mplayer", "vlc", "openshot"]
+assignments[""] = ["pcmanfm", "Pcmanfm"]
+assignments[""] = ["Mpv", "Gimp", "Inkscape", "Mplayer", "Vlc", "openshot-qt",
+                    "Mpv", "gimp", "inkscape", "mplayer", "vlc", "openshot"]
 assignments[""] = ["Epdfview", "Et", "Wpp", "libreoffice-startcenter", "libreoffice-writer", "libreoffice-impress", "libreoffice-calc", "libreoffice-draw", "wps",
                     "epdfview", "et", "wpp", "Libreoffice-startcenter", "Libreoffice-writer", "Libreoffice-impress", "Libreoffice-calc", "Libreoffice-draw", "Wps",]
 assignments[""] = ["PyMOL", "Tk", "AGFRgui.py",
@@ -153,14 +155,14 @@ def assign_app_group(client):
 
 # ----- Layouts adjustment (Max, Tile and TreeTab are just fine enough) ----- #
 layouts = [
-    layout.Bsp(margin=5, border_width=1, border_normal=colorsc[0], border_focus=colorsc[8]),
+    layout.Bsp(margin=10, border_width=0, border_normal=colorsc[0], border_focus=colorsc[8]),
     layout.Max(),
     layout.TreeTab(),
     # layout.Stack(num_stacks=2),
     # Try more layouts by unleashing below layouts.
     # layout.Columns(),
     # layout.Matrix(),
-    layout.MonadTall(margin=5, border_width=1, border_normal=colorsc[0], border_focus=colorsc[8]),
+    layout.MonadTall(margin=15, border_width=0, border_normal=colorsc[0], border_focus=colorsc[8]),
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
@@ -373,5 +375,3 @@ wmname = "LG3D"
 def autostart():
         home = os.path.expanduser('~/.config/qtile/autostart.sh')
         subprocess.call([home])
-
-# ----- Assign applications to groups ----- #
