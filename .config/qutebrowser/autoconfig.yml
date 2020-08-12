@@ -9,6 +9,7 @@ settings:
   bindings.commands:
     global:
       normal:
+        ',gh': open -t https://github.com
         ',gm': open -t mail.google.com
         ',od': download-open
         ',op': open --private
@@ -18,11 +19,3 @@ settings:
         ',yt': open -t youtube.com
         t: open -t
         wv: spawn mpv {url}
-  url.searchengines:
-    global:
-      DEFAULT: https://duckduckgo.com/?q={}
-      ar: https://www.archlinux.org/packages/?q={}
-      aw: https://wiki.archlinux.org/?search={}
-      mp: https://www.google.com/maps/search/{}/
-      tr: https://translate.google.com/#view=home&op=translate&sl=auto&tl=tr&text={}
-      yt: https://youtube.com/results?search_query={}

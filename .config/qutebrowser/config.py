@@ -576,6 +576,7 @@ c.fonts.tabs.selected = '11pt default_family'
 c.fonts.tabs.unselected = '11pt default_family'
 
 # Bindings for normal mode
+config.bind(',gh', 'open -t https://github.com')
 config.bind(',gm', 'open -t mail.google.com')
 config.bind(',od', 'download-open')
 config.bind(',op', 'open --private')
