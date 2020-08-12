@@ -155,6 +155,14 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.notifications', True, 'https://www.reddit.com')
+
 # Allow websites to register protocol handlers via
 # `navigator.registerProtocolHandler`.
 # Type: BoolAsk
@@ -191,7 +199,7 @@ c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
 # the search engine name to the search term, e.g. `:open google
 # qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'aw': 'https://wiki.archlinux.org/?search={}', 'yt': 'https://youtube.com/results?search_query={}', 'tr': 'https://translate.google.com/#view=home&op=translate&sl=auto&tl=tr&text={}'}
+c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'aw': 'https://wiki.archlinux.org/?search={}', 'tr': 'https://translate.google.com/#view=home&op=translate&sl=auto&tl=tr&text={}', 'yt': 'https://youtube.com/results?search_query={}', 'mp': 'https://www.google.com/maps/search/{}/'}
 
 # Text color of the completion widget. May be a single color to use for
 # all columns or a list of three colors, one for each column.
@@ -569,6 +577,8 @@ c.fonts.tabs.unselected = '11pt default_family'
 
 # Bindings for normal mode
 config.bind(',gm', 'open -t mail.google.com')
+config.bind(',od', 'download-open')
+config.bind(',op', 'open --private')
 config.bind(',tr', 'open -t translate.google.com')
 config.bind(',v', 'spawn mpv {url}')
 config.bind(',wa', 'open -t web.whatsapp.com')

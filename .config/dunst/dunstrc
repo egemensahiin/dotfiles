@@ -1,6 +1,6 @@
 [global]
     frame_width = 1
-    frame_color = "#788388"
+    frame_color = "#002b36"
     
     font = System San Francisco Display 8
     
@@ -181,18 +181,18 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#2e3440"
-    foreground = "#FFFFFF"
+    background = "#002b36"
+    foreground = "#fdf6e3"
     timeout = 10
 
 [urgency_normal]
-    background = "#2e3440"
-    foreground = "#FFFFFF"
+    background = "#002b36"
+    foreground = "#fdf6e3"
     timeout = 10
 
 [urgency_critical]
-    background = "#990000"
-    foreground = "#FFFFFF"
+    background = "#dc322f"
+    foreground = "#fdf6e3"
     timeout = 0
 
 

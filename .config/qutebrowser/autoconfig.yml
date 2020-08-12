@@ -6,5 +6,23 @@
 
 config_version: 2
 settings:
-  content.notifications:
-    https://www.reddit.com: true
+  bindings.commands:
+    global:
+      normal:
+        ',gm': open -t mail.google.com
+        ',od': download-open
+        ',op': open --private
+        ',tr': open -t translate.google.com
+        ',v': spawn mpv {url}
+        ',wa': open -t web.whatsapp.com
+        ',yt': open -t youtube.com
+        t: open -t
+        wv: spawn mpv {url}
+  url.searchengines:
+    global:
+      DEFAULT: https://duckduckgo.com/?q={}
+      ar: https://www.archlinux.org/packages/?q={}
+      aw: https://wiki.archlinux.org/?search={}
+      mp: https://www.google.com/maps/search/{}/
+      tr: https://translate.google.com/#view=home&op=translate&sl=auto&tl=tr&text={}
+      yt: https://youtube.com/results?search_query={}

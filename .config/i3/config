@@ -5,16 +5,16 @@ set $mod Mod4
 font pango:Inconsolata Regular 9
 
 #==> Adjust border pixels and style
-default_border pixel
-default_floating_border normal
+default_border pixel 0
+default_floating_border pixel 0
 hide_edge_borders smart
 #    --> gaps
 gaps inner 10
 gaps outer 10
 
 #==> Variables
-set $lock_back "/home/egemen/Pictures/wallpapers/wallp5.png"
-set $backgr "/home/egemen/Pictures/wallpapers/wallp1.png"
+set $lock_back "/home/egemen/Pictures/wallpapers/wallp15.png"
+set $backgr "/home/egemen/Pictures/wallpapers/wallp5.jpg"
 set $Locker i3lock 
 #    --> solarized colors
 set $colorsc0   #002b36
@@ -48,7 +48,7 @@ set $ws9 "9:"
 #==> Startup applications
 exec feh --bg-scale $backgr 
 # exec xcompmgr
-exec_always picom -c -r 12 -l 0 -t 0 -i 0.60 --opacity-rule 100:"class_g = 'i3lock'" --opacity-rule 100:"class_g = 'Rofi'" --blur-method kawase --blur-strength 5 --blur-size 10 --blur-deviation 5.0 --backend glx --corner-radius 10 --rounded-corners-exclude "class_g = 'i3bar'" 
+exec_always picom -c -r 12 -l 0 -t 0 -i 0.75 --opacity-rule 100:"class_g = 'i3lock'" --opacity-rule 100:"class_g = 'Rofi'" --blur-method kawase --blur-strength 5 --blur-size 10 --blur-deviation 5.0 --backend glx --corner-radius 10 --rounded-corners-exclude "class_g = 'i3bar'" 
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 300 "i3lock -e -i $lock_back" normal
 exec_always /home/egemen/.config/i3/alternating_layouts.py
 exec_always nm-applet

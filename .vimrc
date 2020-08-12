@@ -40,13 +40,21 @@ set number
 
 " plugin ekliyoruz:
 call plug#begin('~/.vim/plugged')
-" Plug 'arcticicestudio/nord-vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'ap/vim-css-color'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'sainnhe/forest-night'
 call plug#end()
 " colorscheme nord
-colorscheme solarized
 let g:solarized_termtrans=1
 let g:solarized_italic=1
 let g:solarized_bold=1
+colorscheme solarized
+
+" " the configuration options should be placed before `colorscheme forest-night`
+" set termguicolors
+" let g:forest_night_enable_italic = 1
+" let g:forest_night_disable_italic_comment = 1
+" let g:forest_night_transparent_background=1
+" colorscheme forest-night
