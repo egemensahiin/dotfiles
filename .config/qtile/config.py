@@ -73,7 +73,7 @@ keys = [
     Key([mod, "control"], "g", lazy.spawn("gimp")),
     Key([mod, "control"], "c", lazy.spawn("code-oss")),
     Key([], "Print", lazy.spawn("/home/egemen/.config/qtile/screenshot.sh")),
-    Key([mod], "x", lazy.spawn("i3lock -i /home/egemen/Pictures/wallpapers/wallp15.jpg")),
+    Key([mod], "x", lazy.spawn("i3lock -i /home/egemen/Pictures/wallpapers/wallp15.png")),
     Key([mod], "f", lazy.window.toggle_fullscreen()),
 
     # Should adjust left and right for bsp layout. feom qtile doc:
@@ -180,6 +180,10 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+# Mouse callbacks to use with widgets
+def open_calendar(qtile):
+    qtile.cmd_spawn("gsimplecal")
+
 # I put my widgets here and call them with index if I want
 widgets = [
     widget.GroupBox( # [0] --> Groups
@@ -219,7 +223,7 @@ widgets = [
     widget.Volume( # [7] --> Volume percentage
         background=colorsc[13],
         format='{percent: 2.0%}',
-        foreground=colorsc[0]
+        foreground=colorsc[0],
         ),
     widget.Backlight( # [8] --> Brightness percentage
         background=colorsc[8],
@@ -238,8 +242,12 @@ widgets = [
         ),
     widget.Clock( # [11] --> Time
         background=colorsc[5],
-        format=' %H:%M |  %d.%m.%Y %a',
-        foreground=colorsc[0]
+        format=' %H:%M:%S |  %d.%m.%Y %a',
+        foreground=colorsc[0],
+        mouse_callbacks={
+            "Button1": open_calendar,
+            "Button3": open_calendar,
+            },
         ),
     widget.Clock( # [12] --> Date
         background=colorsc[12],
@@ -358,6 +366,7 @@ floating_layout = layout.Floating(float_rules=[
     # Theese one better float I guess:
     {'wmclass': 'Pavucontrol'},
     {'wmclass': 'Galculator'},
+    {'wmclass': 'Gsimplecal'},
 ])
 
 # ----- Builtin configuration variables ----- #
