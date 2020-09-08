@@ -163,6 +163,16 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 #   - ask
 config.set('content.notifications', True, 'https://www.reddit.com')
 
+# Proxy to use. In addition to the listed values, you can use a
+# `socks://...` or `http://...` URL. Note that with QtWebEngine, it will
+# take a couple of seconds until the change is applied, if this value is
+# changed at runtime.
+# Type: Proxy
+# Valid values:
+#   - system: Use the system wide proxy.
+#   - none: Don't use any proxy
+c.content.proxy = 'http://proxy.ankara.edu.tr:3121'
+
 # Allow websites to register protocol handlers via
 # `navigator.registerProtocolHandler`.
 # Type: BoolAsk
@@ -584,5 +594,7 @@ config.bind(',tr', 'open -t translate.google.com')
 config.bind(',v', 'spawn mpv {url}')
 config.bind(',wa', 'open -t web.whatsapp.com')
 config.bind(',yt', 'open -t youtube.com')
+config.bind(';sap', 'set content.proxy http://proxy.ankara.edu.tr:3121')
+config.bind(';usap', 'set content.proxy system')
 config.bind('t', 'open -t')
 config.bind('wv', 'spawn mpv {url}')

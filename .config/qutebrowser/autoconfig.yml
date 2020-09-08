@@ -17,5 +17,9 @@ settings:
         ',v': spawn mpv {url}
         ',wa': open -t web.whatsapp.com
         ',yt': open -t youtube.com
+        ;sap: set content.proxy http://proxy.ankara.edu.tr:3121
+        ;usap: set content.proxy system
         t: open -t
         wv: spawn mpv {url}
+  content.proxy:
+    global: http://proxy.ankara.edu.tr:3121

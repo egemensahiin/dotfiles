@@ -48,7 +48,7 @@ set $ws9 "9:"
 #==> Startup applications
 exec feh --bg-scale $backgr 
 # exec xcompmgr
-exec_always picom -c -r 12 -l 0 -t 0 -i 0.75 --opacity-rule 100:"class_g = 'i3lock'" --opacity-rule 100:"class_g = 'Rofi'" --blur-method kawase --blur-strength 5 --blur-size 10 --blur-deviation 5.0 --backend glx --corner-radius 10 --rounded-corners-exclude "class_g = 'i3bar'" 
+exec_always picom -c -r 12 -l -15 -t -15 -i 0.75 --opacity-rule 100:"class_g = 'i3lock'" --opacity-rule 100:"class_g = 'Rofi'" --blur-method kawase --blur-strength 5 --blur-size 10 --blur-deviation 5.0 --backend glx 
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 300 "i3lock -e -i $lock_back" normal
 exec_always /home/egemen/.config/i3/alternating_layouts.py
 exec_always nm-applet
