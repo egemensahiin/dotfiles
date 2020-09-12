@@ -171,7 +171,7 @@ config.set('content.notifications', True, 'https://www.reddit.com')
 # Valid values:
 #   - system: Use the system wide proxy.
 #   - none: Don't use any proxy
-c.content.proxy = 'http://proxy.ankara.edu.tr:3121'
+c.content.proxy = 'system'
 
 # Allow websites to register protocol handlers via
 # `navigator.registerProtocolHandler`.

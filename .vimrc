@@ -31,6 +31,10 @@ set clipboard=unnamedplus
 " Line numers on
 set number
 
+set ruler
+set showcmd
+set incsearch
+
 " If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
 " Or better yet, read /usr/share/vim/vim80/vimrc_example.vim or the vim manual
 " and configure vim to your own liking!
@@ -45,12 +49,19 @@ Plug 'ap/vim-css-color'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sainnhe/forest-night'
+Plug 'preservim/nerdtree'
 call plug#end()
 " colorscheme nord
 let g:solarized_termtrans=1
 let g:solarized_italic=1
 let g:solarized_bold=1
 colorscheme solarized
+
+autocmd vimenter * NERDTree
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 
 " " the configuration options should be placed before `colorscheme forest-night`
 " set termguicolors

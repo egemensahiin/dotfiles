@@ -6,20 +6,5 @@
 
 config_version: 2
 settings:
-  bindings.commands:
-    global:
-      normal:
-        ',gh': open -t https://github.com
-        ',gm': open -t mail.google.com
-        ',od': download-open
-        ',op': open --private
-        ',tr': open -t translate.google.com
-        ',v': spawn mpv {url}
-        ',wa': open -t web.whatsapp.com
-        ',yt': open -t youtube.com
-        ;sap: set content.proxy http://proxy.ankara.edu.tr:3121
-        ;usap: set content.proxy system
-        t: open -t
-        wv: spawn mpv {url}
   content.proxy:
-    global: http://proxy.ankara.edu.tr:3121
+    global: system
