@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # touchpad'in ismi
-TOUCHPAD="$(xinput --list --name-only | grep Touchpad)"
+TOUCHPAD="$(xinput --list --name-only | grep Touchpad | head -n 1)"
 # touchpad durumunu kontrol et
 STAT=$(xinput list-props "$TOUCHPAD" | grep "Device Enabled" | awk '{print $NF}')
 
