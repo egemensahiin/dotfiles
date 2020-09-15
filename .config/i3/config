@@ -47,7 +47,8 @@ set $ws8 "8:"
 set $ws9 "9:"
 
 #==> Startup applications
-exec feh --bg-scale $backgr 
+# exec feh --bg-scale $backgr 
+exec .scripts/set_wp.sh
 # exec xcompmgr
 exec picom -c -r 12 -l -15 -t -15 -i 0.75 --opacity-rule 100:"class_g = 'i3lock'" --opacity-rule 100:"class_g = 'Rofi'" --blur-method kawase --blur-strength 5 --blur-size 10 --blur-deviation 5.0 --backend glx 
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 300 "i3lock -e -i $lock_back" normal
@@ -68,7 +69,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 #    --> rofi and a web search script based on rofi
 bindsym $mod+d exec rofi -show drun 
-bindsym $mod+Shift+d exec rofi_web
+bindsym $mod+Shift+d exec /home/egemen/.scripts/rofi_web.sh
 #    --> change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
