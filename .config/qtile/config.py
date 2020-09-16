@@ -111,8 +111,8 @@ keys = [
 
 # ----- My adjustment for groups (more charismatic) ----- #
 list_of_groups = {"": "monadtall",
-                  "": "monadtall",
-                  "": "bsp",
+                  "": "monadtall",
+                  "": "bsp",
                   "": "monadtall",
                   "": "monadtall",
                   "": "monadtall",
@@ -131,8 +131,8 @@ for n, i in enumerate(list(list_of_groups.keys()), 0):
 
 # ----- Assign applications to groups ----- #
 assignments = {}
-assignments[""] = ["Xfce4-terminal", "xfce4-terminal"]
-assignments[""] = ["Chromium", "chromium", "qutebrowser", "Qutebrowser"]
+assignments[""] = ["Xfce4-terminal", "xfce4-terminal"]
+assignments[""] = ["Chromium", "chromium", "qutebrowser", "Qutebrowser"]
 assignments[""] = ["Code-oss", "Geany", "Mousepad",
                     "code-oss", "geany", "mousepad"]
 assignments[""] = ["Spotify", "spotify"]
