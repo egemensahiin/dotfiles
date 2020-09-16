@@ -15,7 +15,7 @@ gaps outer 10
 
 #==> Variables
 set $lock_back "/home/egemen/Pictures/wallpapers/wallp15.png"
-set $backgr "/home/egemen/Pictures/wallpapers/wallp5.jpg"
+set $backgr "/home/egemen/Pictures/wallpapers/wallp5.jpg" #>> My usually preferred one but using reddit instead now.
 set $Locker i3lock 
 #    --> solarized colors
 set $colorsc0   #002b36
@@ -47,9 +47,7 @@ set $ws8 "8:"
 set $ws9 "9:"
 
 #==> Startup applications
-# exec feh --bg-scale $backgr 
-exec .scripts/set_wp.sh
-# exec xcompmgr
+# exec .scripts/set_wp.sh #>> Running that script on /etc/profile instead.
 exec picom -c -r 12 -l -15 -t -15 -i 0.75 --opacity-rule 100:"class_g = 'i3lock'" --opacity-rule 100:"class_g = 'Rofi'" --blur-method kawase --blur-strength 5 --blur-size 10 --blur-deviation 5.0 --backend glx 
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 300 "i3lock -e -i $lock_back" normal
 exec /home/egemen/.config/i3/alternating_layouts.py
