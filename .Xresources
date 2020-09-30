@@ -128,15 +128,3 @@ rofi.modi: ssh,window,drun,run
 rofi.theme: solarized
 rofi.show-icons: true
 rofi.icon-theme: "Solarized-Dark-Orange-Numix"
-!rofi.padding: 300
-!rofi.fullscreen: true
-!rofi.bw: 0
-!rofi.hide-scrollbar: true
-!rofi.columns: 2
-!!                  'background', 'border', 'separator'
-!rofi.color-window: argb:cc2e3440, nord3, nord0
-!! State:           'bg',          'fg',    'bgalt',       'hlbg',        'hlfg'
-!rofi.color-normal: argb:001d1f21, nord5, argb:001d1f21, argb:00fefcff, nord8
-!rofi.color-normal: argb:001d1f21, nord5, argb:001d1f21, argb:00fefcff, nord8
-!rofi.color-normal: argb:001d1f21, nord5, argb:001d1f21, argb:00fefcff, nord8
-!rofi.font: Inconsolata 11

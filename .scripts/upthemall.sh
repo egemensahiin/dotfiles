@@ -4,7 +4,7 @@
 BOS=""
 
 # pacman ve aur paketlerini guncelle:
-yay -Syu
+# yay -Syu
 
 # pip paketlerini guncelle:
 read -p 'PyPi paketleri guncellensin mi? [y/N]: ' SECENEK

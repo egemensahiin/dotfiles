@@ -13,6 +13,8 @@ hide_edge_borders smart
 gaps inner 10
 gaps outer 10
 
+#    --> layouts
+
 #==> Variables
 set $lock_back "/home/egemen/Pictures/wallpapers/wallp15.png"
 set $backgr "/home/egemen/Pictures/wallpapers/wallp5.jpg" #>> My usually preferred one but using reddit instead now.
@@ -265,6 +267,7 @@ assign [class="libreoffice-impress"] $ws7
 assign [class="libreoffice-draw"] $ws7
 assign [class="libreoffice-calc"] $ws7
 assign [class="PyMOL"] $ws8
+assign [class="install4j-chemaxon-marvin-SketchApplication"] $ws8
 assign [class="AGFRgui.py"] $ws8
 assign [class="VirtualBox Machine"] $ws9
 assign [class="VirtualBox Manager"] $ws9
@@ -293,6 +296,7 @@ for_window [class="libreoffice-impress"] focus
 for_window [class="libreoffice-draw"]	focus	
 for_window [class="libreoffice-calc"] focus	
 for_window [class="PyMOL"] focus	
+for_window [class="install4j-chemaxon-marvin-SketchApplication"] focus	
 for_window [class="AGFRgui.py"] focus
 for_window [class="VirtualBox Machine"] focus 
 for_window [class="VirtualBox Manager"] focus
