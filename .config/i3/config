@@ -3,7 +3,6 @@
 #==> Mod key variable and system font adjustment
 set $mod Mod4
 font pango:Inconsolata Regular 9
-font pango:Font Awesome 5 Regular 9
 
 #==> Adjust border pixels and style
 default_border pixel 0
@@ -38,8 +37,8 @@ set $colorsc14  #2aa198
 set $colorsc15  #859900
 #    --> define names for default workspaces for which we configure key bindings later on.
 set $ws0 "0:"
-set $ws1 "1:"
-set $ws2 "2:"
+set $ws1 "1:"
+set $ws2 "2:"
 set $ws3 "3:"
 set $ws4 "4:"
 set $ws5 "5:"
@@ -162,7 +161,7 @@ bindsym $mod+r mode "resize"
 
 #==> i3bar setup and colors
 bar {
-				font pango:Inconsolata Regular 9
+				font pango:Font Awesome 5 Free Regular 9
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
 				workspace_min_width 0
 				strip_workspace_numbers yes

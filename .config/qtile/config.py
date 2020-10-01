@@ -112,15 +112,15 @@ keys = [
 
 # ----- My adjustment for groups (more charismatic) ----- #
 list_of_groups = {"": "monadtall",
-                  "": "monadtall",
-                  "": "bsp",
+                  "": "monadtall",
+                  "": "bsp",
                   "": "monadtall",
                   "": "monadtall",
 #                  "": "monadtall",
                   "": "bsp",
                   "": "monadtall",
-                  "": "monadtall",
-                  "": "monadtall"}
+                  "  ": "monadtall",
+                  "": "monadtall"}
 
 groups = [Group(i, layout=list_of_groups[i]) for i in list(list_of_groups.keys())]
 
@@ -132,8 +132,8 @@ for n, i in enumerate(list(list_of_groups.keys()), 0):
 
 # ----- Assign applications to groups ----- #
 assignments = {}
-assignments[""] = ["Xfce4-terminal", "xfce4-terminal"]
-assignments[""] = ["Chromium", "chromium", "qutebrowser", "Qutebrowser"]
+assignments[""] = ["Xfce4-terminal", "xfce4-terminal"]
+assignments[""] = ["Chromium", "chromium", "qutebrowser", "Qutebrowser"]
 assignments[""] = ["Code-oss", "Geany", "Mousepad",
                     "code-oss", "geany", "mousepad"]
 assignments[""] = ["Spotify", "spotify"]
@@ -142,9 +142,9 @@ assignments[""] = ["Mpv", "Gimp", "Inkscape", "Mplayer", "Vlc", "openshot-qt"
                     "Mpv", "gimp", "inkscape", "mplayer", "vlc", "openshot"]
 assignments[""] = ["Epdfview", "Et", "Wpp", "libreoffice-startcenter", "libreoffice-writer", "libreoffice-impress", "libreoffice-calc", "libreoffice-draw", "wps",
                     "epdfview", "et", "wpp", "Libreoffice-startcenter", "Libreoffice-writer", "Libreoffice-impress", "Libreoffice-calc", "Libreoffice-draw", "Wps",]
-assignments[""] = ["PyMOL", "Tk", "AGFRgui.py",
+assignments["  " ] = ["PyMOL", "Tk", "AGFRgui.py",
                     "pyMOL", "tk", "agfrgui.py"]
-assignments[""] = ["VirtualBox Machine", "VirtualBox Manager"]
+assignments[""] = ["VirtualBox Machine", "VirtualBox Manager"]
 
 @hook.subscribe.client_new
 def assign_app_group(client):
@@ -187,7 +187,8 @@ def open_calendar(qtile):
 widgets = [
     widget.GroupBox( # [0] --> Groups
         borderwidth=0,
-        fontsize=11,
+        font="Font Awesome 5 Free Bold",
+        fontsize=12,
         highlight_method='block',
         foreground=colorsc[0],
         inactive=colorsc[3],
@@ -260,7 +261,7 @@ widgets = [
         ),
     widget.Memory( # [14] --> Memory usage
         background=colorsc[12],
-        format=' {MemUsed}M/{MemTotal}M',
+        format='{MemUsed}M/{MemTotal}M',
         foreground=colorsc[0]
         ),
     widget.CPU( # [15] --> CPU usage
@@ -292,6 +293,7 @@ widgets = [
 def text_before_wid(txt, bg=0, fg=4, fs=10, p=3):
     return widget.TextBox(
         background=colorsc[bg],
+        font="Font Awesome 5 Free Bold",
         text=txt,
         foreground=colorsc[fg],
         fontsize=fs,
@@ -306,7 +308,7 @@ screens = [
                 widgets[1],  # Prompt
                 widgets[2],  # Window
                 text_before_wid("", bg=0, fg=14, fs=35, p=0),
-                text_before_wid(" ", bg=14, fg=0, p=0),
+                text_before_wid(" ", bg=14, fg=0, fs=11, p=0),
                 widgets[19], # Spotify indicator
                 text_before_wid("", bg=14, fg=10, fs=35, p=0),
                 widgets[5],  # LayoutIcon
@@ -321,6 +323,7 @@ screens = [
                 text_before_wid("", bg=14, fg=5, fs=35, p=0),
                 widgets[11], # Time
                 text_before_wid("", bg=5, fg=12, fs=35, p=0),
+                text_before_wid("", bg=12, fs=11, fg=0, p=0),
                 widgets[14], # Mem
                 text_before_wid("", bg=12, fg=15, fs=35, p=0),
                 widgets[17], # Systray
