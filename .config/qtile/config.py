@@ -65,16 +65,17 @@ keys = [
  
     # --- The rest are my own keys
     Key([mod], "d", lazy.spawn("rofi -show drun")),
-    Key([mod, "control"], "d", lazy.spawn("rofi_web")),
+    Key([mod, "control"], "d", lazy.spawn("/home/egemen/.scripts/rofi_web.sh")),
     Key([mod, "control"], "p", lazy.spawn("pavucontrol")),
     Key([mod, "control"], "o", lazy.spawn("xfce4-terminal -e alsamixer")),
     Key([mod, "control"], "b", lazy.spawn("qutebrowser")),
-    Key([mod, "control"], "f", lazy.spawn("pcmanfm")),
+    Key([mod, "control"], "f", lazy.spawn("xfce4-terminal -e ranger")),
     Key([mod, "control"], "g", lazy.spawn("gimp")),
     Key([mod, "control"], "c", lazy.spawn("code-oss")),
     Key([], "Print", lazy.spawn("/home/egemen/.config/qtile/screenshot.sh")),
     Key([mod], "x", lazy.spawn("i3lock -i /home/egemen/Pictures/wallpapers/wallp15.png")),
     Key([mod], "f", lazy.window.toggle_fullscreen()),
+    Key([mod], "a", lazy.spawn("/home/egemen/.scripts/power_menu.sh")),
 
     # Should adjust left and right for bsp layout. feom qtile doc:
     Key([mod], "Left", lazy.layout.left()),
@@ -115,7 +116,7 @@ list_of_groups = {"": "monadtall",
                   "": "bsp",
                   "": "monadtall",
                   "": "monadtall",
-                  "": "monadtall",
+#                  "": "monadtall",
                   "": "bsp",
                   "": "monadtall",
                   "": "monadtall",
@@ -136,7 +137,7 @@ assignments[""] = ["Chromium", "chromium", "qutebrowser", "Qutebrowser"]
 assignments[""] = ["Code-oss", "Geany", "Mousepad",
                     "code-oss", "geany", "mousepad"]
 assignments[""] = ["Spotify", "spotify"]
-assignments[""] = ["pcmanfm", "Pcmanfm"]
+#assignments[""] = ["pcmanfm", "Pcmanfm"]
 assignments[""] = ["Mpv", "Gimp", "Inkscape", "Mplayer", "Vlc", "openshot-qt",
                     "Mpv", "gimp", "inkscape", "mplayer", "vlc", "openshot"]
 assignments[""] = ["Epdfview", "Et", "Wpp", "libreoffice-startcenter", "libreoffice-writer", "libreoffice-impress", "libreoffice-calc", "libreoffice-draw", "wps",
@@ -178,8 +179,6 @@ widget_defaults = dict(
     padding=3,
     background=colorsc[0],
 )
-extension_defaults = widget_defaults.copy()
-
 # Mouse callbacks to use with widgets
 def open_calendar(qtile):
     qtile.cmd_spawn("gsimplecal")
@@ -188,7 +187,7 @@ def open_calendar(qtile):
 widgets = [
     widget.GroupBox( # [0] --> Groups
         borderwidth=0,
-        fontsize=9,
+        fontsize=11,
         highlight_method='block',
         foreground=colorsc[0],
         inactive=colorsc[3],
@@ -306,28 +305,28 @@ screens = [
                 widgets[0],  # Groups
                 widgets[1],  # Prompt
                 widgets[2],  # Window
-                text_before_wid("", bg=0, fg=14, fs=30, p=0),
+                text_before_wid("", bg=0, fg=14, fs=35, p=0),
                 text_before_wid(" ", bg=14, fg=0, p=0),
                 widgets[19], # Spotify indicator
-                text_before_wid("", bg=14, fg=10, fs=30, p=0),
+                text_before_wid("", bg=14, fg=10, fs=35, p=0),
                 widgets[5],  # LayoutIcon
                 widgets[6],  # LayoutText 
-                text_before_wid("", bg=10, fg=13, fs=30, p=0),
+                text_before_wid("", bg=10, fg=13, fs=35, p=0),
                 text_before_wid("", bg=13, fg=0),
                 widgets[7],  # Vol
-                text_before_wid("", bg=13, fg=8, fs=30, p=0),
+                text_before_wid("", bg=13, fg=8, fs=35, p=0),
                 widgets[8],  # Bri
-                text_before_wid("", bg=8, fg=14, fs=30, p=0),
+                text_before_wid("", bg=8, fg=14, fs=35, p=0),
                 widgets[9],  # Bat
-                text_before_wid("", bg=14, fg=5, fs=30, p=0),
+                text_before_wid("", bg=14, fg=5, fs=35, p=0),
                 widgets[11], # Time
-                text_before_wid("", bg=5, fg=12, fs=30, p=0),
+                text_before_wid("", bg=5, fg=12, fs=35, p=0),
                 widgets[14], # Mem
-                text_before_wid("", bg=12, fg=15, fs=30, p=0),
+                text_before_wid("", bg=12, fg=15, fs=35, p=0),
                 widgets[17], # Systray
                 widgets[10], # CapsNumIndicator
             ],
-            15,
+            20,
         ),
     ),
 ]

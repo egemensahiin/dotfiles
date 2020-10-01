@@ -1,4 +1,4 @@
 #!/bin/bash
 
-wallpaper-reddit
+# wallpaper-reddit
 feh --bg-scale $HOME/.wallpaper/wallpaper.jpg

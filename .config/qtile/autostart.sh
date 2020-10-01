@@ -1,6 +1,6 @@
 #!/bin/sh
 udiskie &
-# feh --bg-scale ~/Pictures/wallpapers/wallp5.jpg & #>> Using reddit wallpaper instead in /etc/profile
+feh --bg-scale ~/Pictures/wallpapers/wallpaper.jpg &
 nm-applet &
 blueman-tray &
 xidlehook --not-when-fullscreen --not-when-audio --timer 300 "i3lock -e -i /home/egemen/Pictures/wallpapers/wallp15.png" normal &
