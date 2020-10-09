@@ -209,7 +209,7 @@ c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
 # the search engine name to the search term, e.g. `:open google
 # qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'aw': 'https://wiki.archlinux.org/?search={}', 'tr': 'https://translate.google.com/#view=home&op=translate&sl=auto&tl=tr&text={}', 'yt': 'https://youtube.com/results?search_query={}', 'mp': 'https://www.google.com/maps/search/{}/'}
+c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'aw': 'https://wiki.archlinux.org/?search={}', 'en': 'https://translate.google.com/#view=home&op=translate&sl=auto&tl=en&text={}', 'mp': 'https://www.google.com/maps/search/{}/', 'tr': 'https://translate.google.com/#view=home&op=translate&sl=auto&tl=tr&text={}', 'yt': 'https://youtube.com/results?search_query={}', 'sd': 'https://www.sciencedirect.com/search?qs={}'}
 
 # Text color of the completion widget. May be a single color to use for
 # all columns or a list of three colors, one for each column.

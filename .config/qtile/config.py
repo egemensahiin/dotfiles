@@ -1,6 +1,4 @@
-# !!!!- DON'T FORGET FUCKING COMMAS -!!!! #
-
-# ----- Import libs and functions in here ----- #
+# ----- Import modules in here ----- #
 import os
 import subprocess
 from libqtile.config import Rule, Match, Key, Screen, Group, Drag, Click
@@ -71,9 +69,10 @@ keys = [
     Key([mod, "control"], "b", lazy.spawn("qutebrowser")),
     Key([mod, "control"], "f", lazy.spawn("xfce4-terminal -e ranger")),
     Key([mod, "control"], "g", lazy.spawn("gimp")),
+    Key([mod, "control"], "s", lazy.spawn("spotify")),
     Key([mod, "control"], "c", lazy.spawn("code-oss")),
     Key([], "Print", lazy.spawn("/home/egemen/.config/qtile/screenshot.sh")),
-    Key([mod], "x", lazy.spawn("i3lock -i /home/egemen/Pictures/wallpapers/wallp15.png")),
+    Key([mod], "x", lazy.spawn("i3lock -i /home/egemen/Pictures/wallpapers/wallp15.png & xset dpms force off")),
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod], "a", lazy.spawn("/home/egemen/.scripts/power_menu.sh")),
 
@@ -113,7 +112,7 @@ keys = [
 # ----- My adjustment for groups (more charismatic) ----- #
 list_of_groups = {"": "monadtall",
                   "": "monadtall",
-                  "": "bsp",
+                  "": "bsp",
                   "": "monadtall",
                   "": "monadtall",
 #                  "": "monadtall",
@@ -133,7 +132,7 @@ for n, i in enumerate(list(list_of_groups.keys()), 0):
 # ----- Assign applications to groups ----- #
 assignments = {}
 assignments[""] = ["Xfce4-terminal", "xfce4-terminal"]
-assignments[""] = ["Chromium", "chromium", "qutebrowser", "Qutebrowser"]
+assignments[""] = ["Chromium", "chromium", "qutebrowser", "Qutebrowser"]
 assignments[""] = ["Code-oss", "Geany", "Mousepad",
                     "code-oss", "geany", "mousepad"]
 assignments[""] = ["Spotify", "spotify"]
@@ -142,8 +141,8 @@ assignments[""] = ["Mpv", "Gimp", "Inkscape", "Mplayer", "Vlc", "openshot-qt"
                     "Mpv", "gimp", "inkscape", "mplayer", "vlc", "openshot"]
 assignments[""] = ["Epdfview", "Et", "Wpp", "libreoffice-startcenter", "libreoffice-writer", "libreoffice-impress", "libreoffice-calc", "libreoffice-draw", "wps",
                     "epdfview", "et", "wpp", "Libreoffice-startcenter", "Libreoffice-writer", "Libreoffice-impress", "Libreoffice-calc", "Libreoffice-draw", "Wps",]
-assignments["  " ] = ["PyMOL", "Tk", "AGFRgui.py",
-                    "pyMOL", "tk", "agfrgui.py"]
+assignments["  " ] = ["PyMOL", "AGFRgui.py",
+                    "pyMOL", "agfrgui.py"]
 assignments[""] = ["VirtualBox Machine", "VirtualBox Manager"]
 
 @hook.subscribe.client_new
@@ -182,6 +181,8 @@ widget_defaults = dict(
 # Mouse callbacks to use with widgets
 def open_calendar(qtile):
     qtile.cmd_spawn("gsimplecal")
+def monitor_manager(qtile):
+    qtile.cmd_spawn("/home/egemen/.scripts/monitor_manager_2.py")
 
 # I put my widgets here and call them with index if I want
 widgets = [
@@ -224,6 +225,7 @@ widgets = [
         background=colorsc[13],
         format='{percent: 2.0%}',
         foreground=colorsc[0],
+        volume_app="alsamixer"
         ),
     widget.Backlight( # [8] --> Brightness percentage
         background=colorsc[8],
@@ -288,6 +290,14 @@ widgets = [
         foreground=colorsc[0],
         scroll_wait_intervals=10,
         ),
+    widget.TextBox( # [20] --> Monitor setup
+        text=' ',
+        mouse_callbacks={
+            'Button1': monitor_manager
+            },
+        background=colorsc[15],
+        foreground=colorsc[0],
+        ),
 ]
 
 def text_before_wid(txt, bg=0, fg=4, fs=10, p=3):
@@ -311,6 +321,7 @@ screens = [
                 text_before_wid(" ", bg=14, fg=0, fs=11, p=0),
                 widgets[19], # Spotify indicator
                 text_before_wid("", bg=14, fg=10, fs=35, p=0),
+               # text_before_wid("", bg=0, fg=10, fs=35, p=0),
                 widgets[5],  # LayoutIcon
                 widgets[6],  # LayoutText 
                 text_before_wid("", bg=10, fg=13, fs=35, p=0),
@@ -327,6 +338,7 @@ screens = [
                 widgets[14], # Mem
                 text_before_wid("", bg=12, fg=15, fs=35, p=0),
                 widgets[17], # Systray
+                widgets[20], # Monitor manager
                 widgets[10], # CapsNumIndicator
             ],
             20,

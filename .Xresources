@@ -128,3 +128,5 @@ rofi.modi: ssh,window,drun,run
 rofi.theme: solarized
 rofi.show-icons: true
 rofi.icon-theme: "Solarized-Dark-Orange-Numix"
+rofi.fixed-num-lines: true
+rofi.font: Inconsolata Regular 13
