@@ -20,7 +20,7 @@ set hlsearch
 set scrolloff=5
 
 " Set Tab size (hope so)
-set tabstop=2
+set tabstop=4
 
 " Syntax highlight
 syntax on

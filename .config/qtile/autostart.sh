@@ -1,6 +1,6 @@
 #!/bin/sh
 udiskie &
-feh --bg-fill ~/Pictures/wallpapers/wallpaper.jpg &
+feh --bg-fill ~/Pictures/wallpapers/wallp6.jpg &
 nm-applet &
 blueman-tray &
 xidlehook --not-when-fullscreen --not-when-audio --timer 300 "i3lock -e -i /home/egemen/Pictures/wallpapers/wallp15.png && xset dpms force off" normal &
