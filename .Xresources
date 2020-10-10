@@ -43,9 +43,11 @@ Xcursor.size:                     0
 #define S_cyan          #2aa198
 #define S_green         #859900
 
-*background:            S_base03
+! Light theme for X windows such as python tkinter
+
+*background:            S_base3
 *foreground:            S_base00
-*fadeColor:             S_base3
+*fadeColor:             S_base03
 *cursorColor:           S_base01
 *pointerColorBackground:S_base1
 *pointerColorForeground:S_base01
