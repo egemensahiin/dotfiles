@@ -67,7 +67,7 @@ match_lhs=""
 
 case $HOSTNAME in
 				"arch")						host=" "; os_color="34";;
-				"manjaro")					host=" "; os_color="34";;
+				"manjaro")					host=" "; os_color="32";;
 				"debian")					host=" "; os_color="31";;
 				"ubuntu")					host=" "; os_color="31";;
 				"fedora")					host=" "; os_color="34";;
