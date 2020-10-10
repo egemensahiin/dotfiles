@@ -65,6 +65,25 @@ match_lhs=""
 	&& match_lhs=$(dircolors --print-database)
 [[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] && use_color=true
 
+case $HOSTNAME in
+				"arch")						host=" "; os_color="34";;
+				"manjaro")					host=" "; os_color="34";;
+				"debian")					host=" "; os_color="31";;
+				"ubuntu")					host=" "; os_color="31";;
+				"fedora")					host=" "; os_color="34";;
+				"linuxmint"|"mint")			host=" "; os_color="32";;
+				"opensuse")					host=" "; os_color="32";;
+				"elementary"|"elementaryos")host=" "; os_color="34";;
+				"gentoo")					host=" "; os_color="35";;
+				"slackware")				host=" "; os_color="30";;
+				"redhat")					host=" "; os_color="31";;
+				"centos")					host=" "; os_color="33";;
+				"alpine")					host=" "; os_color="34";;
+				"devuan")					host=" "; os_color="30";;
+				"freebsd"|"bsd")			host=" "; os_color="31";;
+				*) 							host="$HOSTNAME";;
+esac
+
 if ${use_color} ; then
 	# Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
 	if type -P dircolors >/dev/null ; then
@@ -78,7 +97,7 @@ if ${use_color} ; then
 	if [[ ${EUID} == 0 ]] ; then
 		PS1='\[\033[01;31m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\$\[\033[00m\] '
 	else
-		PS1='\[\033[01;34m\]\u\[\033[00m\]@\h:\[\033[32m\]\w\[\e[31m\]$(nonzero_return)\[\033[00m\]\$\[\033[00m\] '
+		PS1='\[\033[01;${os_color}m\]\u\[\033[00m\] at \[\033[01;${os_color}m\]${host}\[\033[00m\] in \[\033[32m\]\w\[\e[31m\]$(nonzero_return)\[\033[00m\]\$\[\033[00m\] '
 	fi
 
 
