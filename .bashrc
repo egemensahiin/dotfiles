@@ -81,7 +81,7 @@ case $HOSTNAME in
 				"alpine")					host=" "; os_color="34";;
 				"devuan")					host=" "; os_color="30";;
 				"freebsd"|"bsd")			host=" "; os_color="31";;
-				*) 							host="$HOSTNAME";;
+				*) 							host="$HOSTNAME"; os_color="34";;
 esac
 
 if ${use_color} ; then
@@ -97,7 +97,7 @@ if ${use_color} ; then
 	if [[ ${EUID} == 0 ]] ; then
 		PS1='\[\033[01;31m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\$\[\033[00m\] '
 	else
-		PS1='\[\033[01;${os_color}m\]\u\[\033[00m\] at \[\033[01;${os_color}m\]${host}\[\033[00m\] in \[\033[32m\]\w\[\e[31m\]$(nonzero_return)\[\033[00m\]\$\[\033[00m\] '
+		PS1='\[\033[01;${os_color}m\]\u\[\033[00m\] at \[\033[00;${os_color}m\]${host}\[\033[00m\]:\[\033[32m\]\w\[\e[31m\]$(nonzero_return)\[\033[00m\]\$\[\033[00m\] '
 	fi
 
 
