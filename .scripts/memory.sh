@@ -21,17 +21,27 @@ Used:  $totUsed" | awk '
 	mem_used=$2
 }
 END {
-total_m=mem_total/1024
+total_m=mem_total/1024/1024
 used_m=mem_used/1024
 pct=0
 if (total_m > 0) {
 			pct=used_m/total_m*100
 		}
-# full text
-# printf("%.0fMiB/%.0fMiB (%.f%%)\n", used_m, total_m, pct)
-printf("%.0fMiB/%.0fMiB\n", used_m, total_m)
-# short text
-# printf("%.f%%\n", pct)
+if (used_m > 1200) {
+		used_m=used_m/1024
+		# full text
+		# printf("%.2fGiB/%.0fGiB (%.f%%)\n", used_m, total_m, pct)
+		printf("%.2fGiB/%.2fGiB\n", used_m, total_m)
+		# short text
+		# printf("%.f%%\n", pct)
+}
+else {	
+		# full text
+		# printf("%.0fMiB/%.0fGiB (%.f%%)\n", used_m, total_m, pct)
+		printf("%.0fMiB/%.2fGiB\n", used_m, total_m)
+		# short text
+		# printf("%.f%%\n", pct)
+}
 # color
 if (pct > 90) {
 	print("#FF0000")

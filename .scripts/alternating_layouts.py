@@ -44,6 +44,8 @@ def set_layout():
                    and parent['layout'] != 'stacked'):
             height = parent['rect']['height']
             width = parent['rect']['width']
+            if width > height:
+                i3.split('vertical')
 
             if height > width:
                 new_layout = 'vertical'
