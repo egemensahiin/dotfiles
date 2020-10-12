@@ -10,24 +10,41 @@ from typing import List  # noqa: F401
 # ----- Mod key variable; mod1 for ALT key, mod4 for Super key ----- #
 mod = "mod4"
 
-# ----- Color scheme of course Nord ----- #
-colorsc = ['#002b36', # 0 
-           '#073642', # 1
-           '#586e75', # 2
-           '#657b83', # 3
-           '#839496', # 4
-           '#93a1a1', # 5
-           '#eee8d5', # 6
-           '#fdf6e3', # 7
-           '#b58900', # 8
-           '#cb4b16', # 9
-           '#dc322f', # 10 
-           '#d33682', # 11
-           '#6c71c4', # 12
-           '#268bd2', # 13
-           '#2aa198', # 14
-           '#859900'] # 15
+# ----- Solarized Colors ----- #
+# colorsc = ['#002b36', # 0 
+#            '#073642', # 1
+#            '#586e75', # 2
+#            '#657b83', # 3
+#            '#839496', # 4
+#            '#93a1a1', # 5
+#            '#eee8d5', # 6
+#            '#fdf6e3', # 7
+#            '#b58900', # 8
+#            '#cb4b16', # 9
+#            '#dc322f', # 10 
+#            '#d33682', # 11
+#            '#6c71c4', # 12
+#            '#268bd2', # 13
+#            '#2aa198', # 14
+#            '#859900'] # 15
 
+# ----- Gruvbox Colors ----- #
+colorsc = ['#282828', # 0 
+           '#cc241d', # 1
+           '#98971a', # 2
+           '#d79921', # 3
+           '#458588', # 4
+           '#b16286', # 5
+           '#689d6a', # 6
+           '#a89984', # 7
+           '#928374', # 8
+           '#fb4934', # 9
+           '#b8bb26', # 10
+           '#fabd2f', # 11
+           '#83a598', # 12
+           '#d3869b', # 13
+           '#8ec07c', # 14
+           '#ebdbb2',]# 15
 
 # ----- List (literally a list) of key-bindings. Adjust them in here or append after if necessary ----- #
 keys = [
@@ -71,10 +88,9 @@ keys = [
     Key([mod, "control"], "g", lazy.spawn("gimp")),
     Key([mod, "control"], "s", lazy.spawn("spotify")),
     Key([mod, "control"], "c", lazy.spawn("code-oss")),
-    Key([], "Print", lazy.spawn("/home/egemen/.config/qtile/screenshot.sh")),
+    Key([], "Print", lazy.spawn("/home/egemen/.scripts/q_screenshot.sh")),
     Key([mod], "x", lazy.spawn("i3lock -i /home/egemen/Pictures/wallpapers/wallp15.png & xset dpms force off")),
     Key([mod], "f", lazy.window.toggle_fullscreen()),
-    Key([mod], "a", lazy.spawn("/home/egemen/.scripts/power_menu.sh")),
 
     # Should adjust left and right for bsp layout. feom qtile doc:
     Key([mod], "Left", lazy.layout.left()),
@@ -106,7 +122,7 @@ keys = [
 
     # Other XF86Keys (XF86RFKill is working default, don't try to define that):
     Key([], "XF86Calculator", lazy.spawn("galculator")),
-    Key([], "XF86TouchpadToggle", lazy.spawn("/home/egemen/.config/qtile/touchpad_controller.sh"))
+    Key([], "XF86TouchpadToggle", lazy.spawn("/home/egemen/.scripts/touchpad_controller.sh"))
 ]
 
 # ----- My adjustment for groups (more charismatic) ----- #
@@ -191,19 +207,19 @@ widgets = [
         font="Font Awesome 5 Free Bold",
         fontsize=12,
         highlight_method='block',
-        foreground=colorsc[0],
-        inactive=colorsc[3],
-        active=colorsc[8],
         urgent_alert_method='block',
-        urgent_border=colorsc[11],
+        foreground=colorsc[0],
+        inactive=colorsc[7],
+        active=colorsc[2],
+        urgent_border=colorsc[1],
         block_highlight_text_color=colorsc[0],
-        this_current_screen_border=colorsc[8]
+        this_current_screen_border=colorsc[2]
         ),
     widget.Prompt( # [1] --> Prompt
-        foreground=colorsc[3]
+        foreground=colorsc[14]
         ),
     widget.WindowName( # [2] --> Window name indicator
-        foreground=colorsc[3]
+        foreground=colorsc[10]
         ),
     widget.TextBox( # [3] --> Text for Updates
         text='PAC:',
@@ -213,22 +229,22 @@ widgets = [
         foreground=colorsc[4]
         ),
     widget.CurrentLayoutIcon( # [5] --> Layout icon
-        background=colorsc[10],
+        background=colorsc[1],
         scale=0.65,
         foreground=colorsc[0]
         ),
     widget.CurrentLayout( # [6] --> Layout name
-        background=colorsc[10],
+        background=colorsc[1],
         foreground=colorsc[0],
         ),
     widget.Volume( # [7] --> Volume percentage
-        background=colorsc[13],
+        background=colorsc[4],
         format='{percent: 2.0%}',
         foreground=colorsc[0],
         volume_app="alsamixer"
         ),
     widget.Backlight( # [8] --> Brightness percentage
-        background=colorsc[8],
+        background=colorsc[3],
         backlight_name='intel_backlight',
         format='{percent: 2.0%}',
         foreground=colorsc[0]
@@ -240,7 +256,7 @@ widgets = [
         ),
     widget.CapsNumLockIndicator( # [10] --> Caps/Num indicator
         foreground=colorsc[0],
-        background=colorsc[15],
+        background=colorsc[6],
         ),
     widget.Clock( # [11] --> Time
         background=colorsc[5],
@@ -276,7 +292,7 @@ widgets = [
         foreground=colorsc[4]
         ),
     widget.Systray( # [17] --> System tray
-        background=colorsc[15],
+        background=colorsc[6],
         icon_size=10,
         ),
     widget.Sep( # [18] --> Seperator
@@ -284,7 +300,7 @@ widgets = [
         foreground=colorsc[4]
         ),
     widget.Mpris2( # [19] --> Spotify player (I hope)
-        background=colorsc[14],
+        background=colorsc[2],
         objname='org.mpris.MediaPlayer2.spotify',
         display_metadata=['xesam:title', 'xesam:artist'],
         foreground=colorsc[0],
@@ -295,7 +311,7 @@ widgets = [
         mouse_callbacks={
             'Button1': monitor_manager
             },
-        background=colorsc[15],
+        background=colorsc[6],
         foreground=colorsc[0],
         ),
 ]
@@ -317,26 +333,26 @@ screens = [
                 widgets[0],  # Groups
                 widgets[1],  # Prompt
                 widgets[2],  # Window
-                text_before_wid("", bg=0, fg=14, fs=35, p=0),
-                text_before_wid(" ", bg=14, fg=0, fs=11, p=0),
+                text_before_wid("", bg=0, fg=2, fs=35, p=0),
+                text_before_wid(" ", bg=2, fg=0, fs=11, p=0),
                 widgets[19], # Spotify indicator
-                text_before_wid("", bg=14, fg=10, fs=35, p=0),
+                text_before_wid("", bg=2, fg=1, fs=35, p=0),
                # text_before_wid("", bg=0, fg=10, fs=35, p=0),
                 widgets[5],  # LayoutIcon
                 widgets[6],  # LayoutText 
-                text_before_wid("", bg=10, fg=13, fs=35, p=0),
-                text_before_wid("", bg=13, fg=0),
+                text_before_wid("", bg=1, fg=4, fs=35, p=0),
+                text_before_wid("", bg=4, fg=0),
                 widgets[7],  # Vol
-                text_before_wid("", bg=13, fg=8, fs=35, p=0),
+                text_before_wid("", bg=4, fg=3, fs=35, p=0),
                 widgets[8],  # Bri
-                text_before_wid("", bg=8, fg=14, fs=35, p=0),
+                text_before_wid("", bg=3, fg=14, fs=35, p=0),
                 widgets[9],  # Bat
                 text_before_wid("", bg=14, fg=5, fs=35, p=0),
                 widgets[11], # Time
                 text_before_wid("", bg=5, fg=12, fs=35, p=0),
                 text_before_wid("", bg=12, fs=11, fg=0, p=0),
                 widgets[14], # Mem
-                text_before_wid("", bg=12, fg=15, fs=35, p=0),
+                text_before_wid("", bg=12, fg=6, fs=35, p=0),
                 widgets[17], # Systray
                 widgets[20], # Monitor manager
                 widgets[10], # CapsNumIndicator
@@ -396,5 +412,5 @@ wmname = "LG3D"
 # ----- Autostart applications; adjust them with the shell script called autostart.sh of course ----- #
 @hook.subscribe.startup_once
 def autostart():
-        home = os.path.expanduser('~/.config/qtile/autostart.sh')
+        home = os.path.expanduser('~/.scripts/autostart.sh')
         subprocess.call([home])

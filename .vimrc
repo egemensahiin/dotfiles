@@ -28,8 +28,10 @@ syntax on
 " To be able to reach clipboard
 set clipboard=unnamedplus
 
-" Line numers on
-set number
+" " Line numers on
+" set number
+" Relative line numbers are better
+set number relativenumber
 
 set ruler
 set showcmd
@@ -50,12 +52,20 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sainnhe/forest-night'
 Plug 'preservim/nerdtree'
+Plug 'hardcoreplayers/gruvbox9'
 call plug#end()
 " colorscheme nord
-let g:solarized_termtrans=1
-let g:solarized_italic=1
-let g:solarized_bold=1
-colorscheme solarized
+" " Solarized Settings
+" let g:solarized_termtrans=1
+" let g:solarized_italic=1
+" let g:solarized_bold=1
+" colorscheme solarized
+" Gruvbox Settings
+let g:gruvbox_transp_bg=1
+let g:gruvbox_italic=1
+let g:gruvbox_italicize_strings=1
+colorscheme gruvbox9
+set background=dark
 
 autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
