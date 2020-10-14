@@ -37,6 +37,9 @@ set ruler
 set showcmd
 set incsearch
 
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+
 " If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
 " Or better yet, read /usr/share/vim/vim80/vimrc_example.vim or the vim manual
 " and configure vim to your own liking!
@@ -66,6 +69,11 @@ let g:gruvbox_italic=1
 let g:gruvbox_italicize_strings=1
 colorscheme gruvbox9
 set background=dark
+
+" Airline settings
+let g:airline_theme='base16_gruvbox_dark_hard'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
