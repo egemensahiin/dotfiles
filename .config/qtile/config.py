@@ -51,7 +51,9 @@ keys = [
     # Switch between windows in current stack pane
     # Use arrow keys. Dont like hjkl combination for navigating.
     Key([mod], "Down", lazy.layout.down()),
+    Key([mod], "j", lazy.layout.down()),
     Key([mod], "Up", lazy.layout.up()),
+    Key([mod], "k", lazy.layout.up()),
  
     # # Move winsows up or down in current stack # conflict with bsp bindings
     # Key([mod, "control"], "Down", lazy.layout.shuffle_down()),
@@ -89,22 +91,32 @@ keys = [
     Key([mod, "control"], "s", lazy.spawn("spotify")),
     Key([mod, "control"], "c", lazy.spawn("code-oss")),
     Key([], "Print", lazy.spawn("/home/egemen/.scripts/q_screenshot.sh")),
-    Key([mod], "x", lazy.spawn("i3lock -i /home/egemen/Pictures/wallpapers/wallp15.png & xset dpms force off")),
+    Key([mod], "x", lazy.spawn("/home/egemen/.scripts/locker.sh")),
     Key([mod], "f", lazy.window.toggle_fullscreen()),
 
     # Should adjust left and right for bsp layout. feom qtile doc:
     Key([mod], "Left", lazy.layout.left()),
+    Key([mod], "h", lazy.layout.left()),
     Key([mod], "Right", lazy.layout.right()),
+    Key([mod], "l", lazy.layout.right()),
     Key([mod, "shift"], "Left", lazy.layout.shuffle_left()),
     Key([mod, "shift"], "Right", lazy.layout.shuffle_right()),
     Key([mod, "mod1"], "Up", lazy.layout.flip_down()),
+    Key([mod, "mod1"], "k", lazy.layout.flip_down()),
     Key([mod, "mod1"], "Down", lazy.layout.flip_up()),
+    Key([mod, "mod1"], "j", lazy.layout.flip_up()),
     Key([mod, "mod1"], "Left", lazy.layout.flip_left()),
+    Key([mod, "mod1"], "h", lazy.layout.flip_left()),
     Key([mod, "mod1"], "Right", lazy.layout.flip_right()),
+    Key([mod, "mod1"], "l", lazy.layout.flip_right()),
     Key([mod, "control"], "Up", lazy.layout.grow_down()),
+    Key([mod, "control"], "k", lazy.layout.grow_down()),
     Key([mod, "control"], "Down", lazy.layout.grow_up()),
+    Key([mod, "control"], "j", lazy.layout.grow_up()),
     Key([mod, "control"], "Left", lazy.layout.grow_left()),
+    Key([mod, "control"], "h", lazy.layout.grow_left()),
     Key([mod, "control"], "Right", lazy.layout.grow_right()),
+    Key([mod, "control"], "l", lazy.layout.grow_right()),
     Key([mod, "shift"], "n", lazy.layout.normalize()),
  
     # Media keys:
@@ -210,7 +222,7 @@ widgets = [
         urgent_alert_method='block',
         foreground=colorsc[0],
         inactive=colorsc[7],
-        active=colorsc[2],
+        active=colorsc[3],
         urgent_border=colorsc[1],
         block_highlight_text_color=colorsc[0],
         this_current_screen_border=colorsc[2]

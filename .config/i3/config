@@ -17,7 +17,7 @@ gaps outer 10
 #==> Variables
 set $lock_back "/home/egemen/Pictures/wallpapers/wallp15.png"
 set $backgr "/home/egemen/Pictures/wallpapers/vAaWSld.jpg" #>> My usually preferred one but using reddit instead now.
-set $Locker i3lock 
+set $Locker /home/egemen/.scripts/locker.sh 
 #    --> solarized colors
 set $colorsc0   #002b36
 set $colorsc1   #073642
@@ -217,7 +217,7 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+10 i3blocks
 bindsym --release Num_Lock exec pkill -SIGRTMIN+10 i3blocks
 
 #==> Screenlock 
-bindsym $mod+x exec i3lock -e -i $lock_back
+bindsym $mod+x exec /home/egemen/.scripts/locker.sh
 
 #==> XF86 Keys
 bindsym XF86AudioRaiseVolume exec ponymix --max-volume 150 increase 5 && exec pkill -SIGRTMIN+10 i3blocks 
