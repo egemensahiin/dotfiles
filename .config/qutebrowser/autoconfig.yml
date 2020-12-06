@@ -6,5 +6,5 @@
 
 config_version: 2
 settings:
-  content.media_capture:
+  content.media.audio_capture:
     https://eu.bbcollab.com: true

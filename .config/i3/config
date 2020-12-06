@@ -16,7 +16,7 @@ gaps outer 10
 
 #==> Variables
 set $lock_back "/home/egemen/Pictures/wallpapers/wallp15.png"
-set $backgr "/home/egemen/Pictures/wallpapers/vAaWSld.jpg" #>> My usually preferred one but using reddit instead now.
+set $backgr "/home/egemen/Pictures/wallpapers/vAaWSld.jpg"
 set $Locker /home/egemen/.scripts/locker.sh 
 #    --> solarized colors
 set $colorsc0   #002b36
@@ -273,6 +273,7 @@ assign [class="MPlayer"] $ws6
 assign [class="vlc"] $ws6
 assign [class="openshot"] $ws6
 assign [class="qpdfview"] $ws7
+assign [class="Zathura"] $ws7
 assign [class="Wps"] $ws7
 assign [class="Et"] $ws7
 assign [class="Wpp"] $ws7
@@ -302,6 +303,7 @@ for_window [class="MPlayer"] focus
 for_window [class="vlc"] focus
 for_window [class="openshot"] focus	
 for_window [class="qpdfview"] focus	
+for_window [class="Zathura"] focus	
 for_window [class="Wps"] focus	
 for_window [class="Et"] focus	
 for_window [class="Wpp"] focus	

@@ -78,18 +78,23 @@ keys = [
 
     Key([mod, "shift"], "r", lazy.restart()),
     Key([mod, "shift"], "e", lazy.shutdown()),
-    Key([mod], "r", lazy.spawncmd('command')),
+    Key([mod, "control"], "r", lazy.spawncmd('command')),
  
     # --- The rest are my own keys
     Key([mod], "d", lazy.spawn("rofi -show drun")),
-    Key([mod, "control"], "d", lazy.spawn("/home/egemen/.scripts/rofi_web.sh")),
-    Key([mod, "control"], "p", lazy.spawn("pavucontrol")),
-    Key([mod, "control"], "o", lazy.spawn("xfce4-terminal -e alsamixer")),
-    Key([mod, "control"], "b", lazy.spawn("qutebrowser")),
-    Key([mod, "control"], "f", lazy.spawn("xfce4-terminal -e ranger")),
-    Key([mod, "control"], "g", lazy.spawn("gimp")),
-    Key([mod, "control"], "s", lazy.spawn("spotify")),
-    Key([mod, "control"], "c", lazy.spawn("code-oss")),
+    Key([mod, "shift"], "d", lazy.spawn("/home/egemen/.scripts/rofi_web.sh")),
+    Key([mod, "shift"], "m", lazy.spawn("/home/egemen/.scripts/monitor_manager_2.py")),
+    Key([mod], "p", lazy.spawn("pavucontrol")),
+    Key([mod], "o", lazy.spawn("xfce4-terminal -e alsamixer")),
+    Key([mod], "t", lazy.spawn("xfce4-terminal -e vim")),
+    Key([mod], "b", lazy.spawn("prime-run qutebrowser")),
+    Key([mod], "m", lazy.spawn("firefox")),
+    Key([mod], "r", lazy.spawn("xfce4-terminal -e ranger")),
+    Key([mod], "g", lazy.spawn("gimp")),
+    Key([mod], "s", lazy.spawn("spotify")),
+    Key([mod], "c", lazy.spawn("code-oss")),
+    Key([mod], "v", lazy.spawn("VirtualBox")),
+    Key([mod], "n", lazy.spawn("discord")),
     Key([], "Print", lazy.spawn("/home/egemen/.scripts/q_screenshot.sh")),
     Key([mod], "x", lazy.spawn("/home/egemen/.scripts/locker.sh")),
     Key([mod], "f", lazy.window.toggle_fullscreen()),
@@ -140,14 +145,15 @@ keys = [
 # ----- My adjustment for groups (more charismatic) ----- #
 list_of_groups = {"": "monadtall",
                   "": "monadtall",
-                  "": "bsp",
+                  "": "monadtall",
                   "": "monadtall",
                   "": "monadtall",
 #                  "": "monadtall",
-                  "": "bsp",
+                  "": "monadtall",
                   "": "monadtall",
                   "  ": "monadtall",
-                  "": "monadtall"}
+                  "": "monadtall",
+                  "": "monadtall"}
 
 groups = [Group(i, layout=list_of_groups[i]) for i in list(list_of_groups.keys())]
 
@@ -159,18 +165,18 @@ for n, i in enumerate(list(list_of_groups.keys()), 0):
 
 # ----- Assign applications to groups ----- #
 assignments = {}
-assignments[""] = ["Xfce4-terminal", "xfce4-terminal"]
-assignments[""] = ["Chromium", "chromium", "qutebrowser", "Qutebrowser"]
+# assignments[""] = ["Xfce4-terminal", "xfce4-terminal"]
+assignments[""] = ["Chromium", "chromium", "qutebrowser", "Qutebrowser", "Navigator", "Firefox"]
 assignments[""] = ["Code-oss", "Geany", "Mousepad",
                     "code-oss", "geany", "mousepad"]
 assignments[""] = ["Spotify", "spotify"]
-#assignments[""] = ["pcmanfm", "Pcmanfm"]
-assignments[""] = ["Mpv", "Gimp", "Inkscape", "Mplayer", "Vlc", "openshot-qt",
-                    "Mpv", "gimp", "inkscape", "mplayer", "vlc", "openshot"]
-assignments[""] = ["Epdfview", "Et", "Wpp", "libreoffice-startcenter", "libreoffice-writer", "libreoffice-impress", "libreoffice-calc", "libreoffice-draw", "wps",
-                    "epdfview", "et", "wpp", "Libreoffice-startcenter", "Libreoffice-writer", "Libreoffice-impress", "Libreoffice-calc", "Libreoffice-draw", "Wps",]
+# assignments[""] = ["pcmanfm", "Pcmanfm"]
+assignments[""] = ["Mpv", "Gimp-2.10", "Inkscape", "Mplayer", "Vlc", "openshot-qt",
+                    "Mpv", "gimp-2.10", "inkscape", "mplayer", "vlc", "openshot"]
+# assignments[""] = ["Epdfview", "Et", "Wpp", "libreoffice-startcenter", "libreoffice-writer", "libreoffice-impress", "libreoffice-calc", "libreoffice-draw", "wps", "zathura",
+#                     "epdfview", "et", "wpp", "Libreoffice-startcenter", "Libreoffice-writer", "Libreoffice-impress", "Libreoffice-calc", "Libreoffice-draw", "Wps", "Zathura",]
 assignments["  " ] = ["PyMOL", "AGFRgui.py",
-                    "pyMOL", "agfrgui.py"]
+                       "pyMOL", "agfrgui.py"]
 assignments[""] = ["VirtualBox Machine", "VirtualBox Manager"]
 
 @hook.subscribe.client_new
@@ -183,14 +189,33 @@ def assign_app_group(client):
 
 # ----- Layouts adjustment (Max, Tile and TreeTab are just fine enough) ----- #
 layouts = [
-    layout.Bsp(margin=10, border_width=0, border_normal=colorsc[0], border_focus=colorsc[8]),
-    layout.Max(),
-    layout.TreeTab(),
+    layout.Bsp(
+        margin=10,
+        border_width=0,
+        border_normal=colorsc[0],
+        border_focus=colorsc[8]
+        ),
+    # layout.Max(),
+    layout.TreeTab(
+        active_bg=colorsc[2],
+        active_fg=colorsc[0],
+        inactive_bg=colorsc[0],
+        inactive_fg=colorsc[15],
+        bg_color=colorsc[0],
+        panel_width=100,
+        font="Inconsolata Bold",
+        font_size=12,
+        ),
     # layout.Stack(num_stacks=2),
     # Try more layouts by unleashing below layouts.
     # layout.Columns(),
     # layout.Matrix(),
-    layout.MonadTall(margin=15, border_width=0, border_normal=colorsc[0], border_focus=colorsc[8]),
+    layout.MonadTall(
+        margin=15, 
+        border_width=0, 
+        border_normal=colorsc[0], 
+        border_focus=colorsc[8]
+        ),
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
@@ -231,7 +256,7 @@ widgets = [
         foreground=colorsc[14]
         ),
     widget.WindowName( # [2] --> Window name indicator
-        foreground=colorsc[10]
+        foreground=colorsc[10],
         ),
     widget.TextBox( # [3] --> Text for Updates
         text='PAC:',
@@ -262,13 +287,20 @@ widgets = [
         foreground=colorsc[0]
         ),
     widget.Battery( # [9] --> Battery percentage
-        background=colorsc[14],
-        format=' {percent:2.0%}',
+        background=colorsc[2],
+        format='{char} {percent:2.0%}',
         foreground=colorsc[0],
+        charge_char=' ',
+        empty_char=' ',
+        full_char=' ',
+        discharge_char='',
+        low_foreground=colorsc[1],
+        update_interval=5,
+        show_short_text=False
         ),
     widget.CapsNumLockIndicator( # [10] --> Caps/Num indicator
         foreground=colorsc[0],
-        background=colorsc[6],
+        background=colorsc[3],
         ),
     widget.Clock( # [11] --> Time
         background=colorsc[5],
@@ -285,17 +317,20 @@ widgets = [
         foreground=colorsc[0]
         ),
     widget.Net( # [13] --> Network
-        interface="wlp3s0",
-        foreground=colorsc[4],
-        format='DOWN: {down} ↓↑ UPL: {up}'
+        interface="wlp0s20f3",
+        background=colorsc[15],
+        foreground=colorsc[0],
+        format=' {down}  {up}'
         ),
     widget.Memory( # [14] --> Memory usage
-        background=colorsc[12],
-        format='{MemUsed}M/{MemTotal}M',
+        background=colorsc[15],
+        format='{MemUsed}M/{MemTotal}M |',
         foreground=colorsc[0]
         ),
     widget.CPU( # [15] --> CPU usage
-        foreground=colorsc[0]
+        background=colorsc[15],
+        foreground=colorsc[0],
+        format=' {freq_current}GHz {load_percent}%'
         ),
     widget.DF( # [16] --> Free space
         format='HOME: {f}G',
@@ -304,7 +339,7 @@ widgets = [
         foreground=colorsc[4]
         ),
     widget.Systray( # [17] --> System tray
-        background=colorsc[6],
+        background=colorsc[3],
         icon_size=10,
         ),
     widget.Sep( # [18] --> Seperator
@@ -323,7 +358,7 @@ widgets = [
         mouse_callbacks={
             'Button1': monitor_manager
             },
-        background=colorsc[6],
+        background=colorsc[3],
         foreground=colorsc[0],
         ),
 ]
@@ -345,26 +380,61 @@ screens = [
                 widgets[0],  # Groups
                 widgets[1],  # Prompt
                 widgets[2],  # Window
-                text_before_wid("", bg=0, fg=2, fs=35, p=0),
+                text_before_wid("", bg=0, fg=2, fs=20, p=0),
                 text_before_wid(" ", bg=2, fg=0, fs=11, p=0),
                 widgets[19], # Spotify indicator
-                text_before_wid("", bg=2, fg=1, fs=35, p=0),
-               # text_before_wid("", bg=0, fg=10, fs=35, p=0),
+                text_before_wid("", bg=2, fg=1, fs=20, p=0),
+               # text_before_wid("", bg=0, fg=10, fs=20, p=0),
                 widgets[5],  # LayoutIcon
                 widgets[6],  # LayoutText 
-                text_before_wid("", bg=1, fg=4, fs=35, p=0),
+                text_before_wid("", bg=1, fg=4, fs=20, p=0),
                 text_before_wid("", bg=4, fg=0),
                 widgets[7],  # Vol
-                text_before_wid("", bg=4, fg=3, fs=35, p=0),
+                text_before_wid("", bg=4, fg=3, fs=20, p=0),
                 widgets[8],  # Bri
-                text_before_wid("", bg=3, fg=14, fs=35, p=0),
+                text_before_wid("", bg=3, fg=2, fs=20, p=0),
                 widgets[9],  # Bat
-                text_before_wid("", bg=14, fg=5, fs=35, p=0),
+                text_before_wid("", bg=2, fg=5, fs=20, p=0),
                 widgets[11], # Time
-                text_before_wid("", bg=5, fg=12, fs=35, p=0),
-                text_before_wid("", bg=12, fs=11, fg=0, p=0),
+                text_before_wid("", bg=5, fg=15, fs=20, p=0),
+                text_before_wid("", bg=15, fs=11, fg=0, p=0),
                 widgets[14], # Mem
-                text_before_wid("", bg=12, fg=6, fs=35, p=0),
+                widgets[15], # CPU
+                text_before_wid("", bg=15, fg=3, fs=20, p=0),
+                widgets[17], # Systray
+                widgets[20], # Monitor manager
+                widgets[10], # CapsNumIndicator
+            ],
+            20,
+        ),
+    ),
+    Screen(
+        bottom=bar.Bar(
+            [
+                widgets[0],  # Groups
+                widgets[1],  # Prompt
+                widgets[2],  # Window
+                text_before_wid("", bg=0, fg=2, fs=20, p=0),
+                text_before_wid(" ", bg=2, fg=0, fs=11, p=0),
+                widgets[19], # Spotify indicator
+                text_before_wid("", bg=2, fg=1, fs=20, p=0),
+               # text_before_wid("", bg=0, fg=10, fs=20, p=0),
+                widgets[5],  # LayoutIcon
+                widgets[6],  # LayoutText 
+                text_before_wid("", bg=1, fg=4, fs=20, p=0),
+                text_before_wid("", bg=4, fg=0),
+                widgets[7],  # Vol
+                text_before_wid("", bg=4, fg=3, fs=20, p=0),
+                widgets[8],  # Bri
+                text_before_wid("", bg=3, fg=2, fs=20, p=0),
+                widgets[9],  # Bat
+                text_before_wid("", bg=2, fg=5, fs=20, p=0),
+                widgets[11], # Time
+                text_before_wid("", bg=5, fg=15, fs=20, p=0),
+                text_before_wid("", bg=15, fs=11, fg=0, p=0),
+                widgets[14], # Mem
+                widgets[15], # CPU
+                text_before_wid("", bg=15, fg=3, fs=20, p=0),
                 widgets[17], # Systray
                 widgets[20], # Monitor manager
                 widgets[10], # CapsNumIndicator

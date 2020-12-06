@@ -2,16 +2,17 @@
 text/plain=mousepad.desktop;
 image/png=feh.desktop;
 image/jpeg=feh.desktop;
-application/pdf=qpdfview.desktop;epdfview.desktop;org.pwmt.zathura.desktop;wps-office-pdf.desktop;
+application/pdf=org.gnome.Evince.desktop;qpdfview.desktop;epdfview.desktop;org.pwmt.zathura.desktop;wps-office-pdf.desktop;
 video/mp4=org.mpv.desktop;
 
 [Default Applications]
 text/plain=mousepad.desktop
 image/png=feh.desktop
 image/jpeg=feh.desktop
-application/pdf=zathura.desktop
+application/pdf=org.gnome.Evince.desktop
 text/html=org.qutebrowser.qutebrowser.desktop
 x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop
 x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop
 x-scheme-handler/about=org.qutebrowser.qutebrowser.desktop
 x-scheme-handler/unknown=org.qutebrowser.qutebrowser.desktop
+x-scheme-handler/msteams=teams.desktop
