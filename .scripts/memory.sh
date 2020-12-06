@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#TODO: Work on that with "free" -h not "free" it might be a lighter code (Luke might
+# be helpful on that)
+
 total=$(free | grep Mem | awk '{print $2}')
 used=$(free | grep Mem | awk '{print $3}')
 buffCache=$(free | grep Mem | awk '{print $5}')

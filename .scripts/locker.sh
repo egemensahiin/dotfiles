@@ -4,13 +4,15 @@
 
 PIC=/tmp/i3lock.png
 
-BLUR="10x8"
+BLUR="5x4"
 
 maim | tee /tmp/i3lock.png
 
 convert $PIC -blur $BLUR $PIC
 i3lock 	-e -i $PIC \
 		--clock \
+		--pass-media-keys --pass-power-keys \
+		--pass-screen-keys --pass-volume-keys \
 		--datestr="%A, %d %m %Y" \
 		--linecolor=#282828 \
 		--verifcolor=#ebdbb2 \

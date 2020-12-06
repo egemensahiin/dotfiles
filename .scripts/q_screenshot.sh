@@ -21,4 +21,8 @@ FILE_NAME="${FILE}.png"
 
 maim | tee ${FILE_NAME} | xclip -selection clipboard -t image/png
 
+notify-send -i "$FILE_NAME" \
+			"Screenshot saved as
+$(basename $FILE_NAME)."
+
 exit 0

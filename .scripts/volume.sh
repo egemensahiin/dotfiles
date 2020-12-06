@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VOL="$(ponymix | grep sink -A 2 | grep Volume | awk '{print $3}' | cut -d "%" -f1)"
+GETVOL="$(ponymix | grep sink -A 2 | grep Volume | awk '{print $3}' | cut -d "%" -f1)"
 MUTED="$(ponymix | grep sink -A 2 | grep Muted)"
 
 if [[ $MUTED != "" ]]
